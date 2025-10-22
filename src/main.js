@@ -3,5 +3,9 @@ function setup() {
 }
 function draw() {
   background(220);
-  rect(20,20,40,40)
+<<<<<<< HEAD
+  rect(300,20,400,40)
+=======
+  rect(400,20,400,40)
+>>>>>>> da032a6c3602b54f955640e3b47016f5ab0607cb
 }
