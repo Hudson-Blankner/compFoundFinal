@@ -26,10 +26,11 @@ function draw() {
 
   // Send position to others
   socket.emit("playerMove", { id: myId, x, y });
-
+  console.log(players[0].x)
   // Draw you
   fill("blue");
   ellipse(x, y, 40);
+  console.log(x)
 
   // Draw others
   fill("red");
