@@ -3,7 +3,4 @@ function setup() {
 }
 function draw() {
   background(220);
-  rect(70,20,100,100);
-  makeSquare();
-  betterSquare();
 }
