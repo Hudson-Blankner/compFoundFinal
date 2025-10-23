@@ -30,6 +30,7 @@ function draw() {
   // Draw you
   fill("blue");
   ellipse(x, y, 40);
+  console.log(x);
 
   // Draw others
   fill("red");
