@@ -28,7 +28,7 @@ function draw() {
   socket.emit("playerMove", { id: myId, x, y });
 
   // Draw you
-  fill("green");
+  fill("blue");
   ellipse(x, y, 40);
 
   // Draw others
