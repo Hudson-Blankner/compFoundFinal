@@ -11,29 +11,46 @@ function setup() {
     myId = socket.id;
   });
 
-  socket.on("playerMoved", (data) => {
+  // Receive current players
+  socket.on("currentPlayers", (serverPlayers) => {
+    players = serverPlayers;
+  });
+
+  // New player joined
+  socket.on("newPlayer", (data) => {
     players[data.id] = data;
+  });
+
+  // Player moved
+  socket.on("playerMoved", (data) => {
+    if (players[data.id]) {
+      players[data.id].x = data.x;
+      players[data.id].y = data.y;
+    }
+  });
+
+  // Player disconnected
+  socket.on("playerDisconnected", (id) => {
+    delete players[id];
   });
 }
 
 function draw() {
   background(220);
+
   // Move your player
   if (keyIsDown(LEFT_ARROW)) x -= 5;
   if (keyIsDown(RIGHT_ARROW)) x += 5;
   if (keyIsDown(UP_ARROW)) y -= 5;
   if (keyIsDown(DOWN_ARROW)) y += 5;
 
-  // Send position to others
-  socket.emit("playerMove", { id: myId, x, y });
+  // Send your position to server
+  socket.emit("playerMove", { x, y });
 
-  // Draw you
-  fill("blue");
-  ellipse(x, y, 40);
-
-  // Draw others
-  fill("red");
+  // Draw all players
   for (let id in players) {
-    if (id !== myId) ellipse(players[id].x, players[id].y, 40);
+    if (id === myId) fill("blue");
+    else fill("red");
+    ellipse(players[id].x, players[id].y, 40);
   }
 }
