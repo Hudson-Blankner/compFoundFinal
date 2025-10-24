@@ -1,6 +1,6 @@
 let socket;
-let players = {};
 let myId;
+let player = {};
 let x = 100, y = 100;
 
 function setup() {
@@ -11,17 +11,14 @@ function setup() {
     myId = socket.id;
   });
 
-  // Receive current players
   socket.on("currentPlayers", (serverPlayers) => {
     players = serverPlayers;
   });
 
-  // New player joined
   socket.on("newPlayer", (data) => {
     players[data.id] = data;
   });
 
-  // Player moved
   socket.on("playerMoved", (data) => {
     if (players[data.id]) {
       players[data.id].x = data.x;
@@ -29,7 +26,6 @@ function setup() {
     }
   });
 
-  // Player disconnected
   socket.on("playerDisconnected", (id) => {
     delete players[id];
   });
@@ -44,13 +40,12 @@ function draw() {
   if (keyIsDown(UP_ARROW)) y -= 5;
   if (keyIsDown(DOWN_ARROW)) y += 5;
 
-  // Send your position to server
+  // Send your position to the server
   socket.emit("playerMove", { x, y });
 
   // Draw all players
   for (let id in players) {
-    if (id === myId) fill("blue");
-    else fill("red");
+    fill(players[id].color || "white");
     ellipse(players[id].x, players[id].y, 40);
   }
 }
