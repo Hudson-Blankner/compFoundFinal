@@ -12,7 +12,7 @@ function titleStage(){
             25, "By Hudson, Lucky, and Port-Dawg"
         ))
     }
-    rect(startBox.x, startBox.y+150, startBox.w, startBox.h, 1)
+    rect(startBox.x, startBox.y+150, startBox.w, startBox.h, 10)
     if (titleTxt.length > 0) {
         textAlign(CENTER, CENTER)
         titleTxt[0].draw();
