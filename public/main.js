@@ -17,18 +17,19 @@ function setup() {
 
   socket.on("newPlayer", (data) => {
     players[data.id] = data;
-    console.log(players[myId].color)
-    if (players[myId].color === "blue") {
-      x = playerOneStartX
-      y = playerOneStartY
+    for (let id in players) {
+      if (players[data.id].color === "blue") {
+        x = playerOneStartX
+        y = playerOneStartY
+      }
+      else if (players[data.id].color === "purple") {
+        x = playerTwoStartX
+        y = playerTwoStartY
+      }
+      else if (players[data.id].color === "orange") {
+        x = playerThreeStartX
+        y = playerThreeStartY
     }
-    else if (players[myId].color === "purple") {
-      x = playerTwoStartX
-      y = playerTwoStartY
-    }
-    else if (players[myId].color === "orange") {
-      x = playerThreeStartX
-      y = playerThreeStartY
     }
   });
 
