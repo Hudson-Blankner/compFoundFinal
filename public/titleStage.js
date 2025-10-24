@@ -1,4 +1,5 @@
 function titleStage(){
+    let playersOnStart = 0
     background(220)
     if (keyIsDown(LEFT_ARROW)) x -= 5;
     if (keyIsDown(RIGHT_ARROW)) x += 5;
@@ -18,4 +19,16 @@ function titleStage(){
         titleTxt[0].draw();
         titleTxt[1].draw();
     }
+    for (let id in players) {
+        if (players[id].x > startBox.x && players[id].x < startBox.x+startBox.w && 
+            players[id].y > startBox.y+150 && players[id].y < startBox.y+150+startBox.h) {
+                playersOnStart += 1;
+            } 
+            else {
+                playersOnStart -= 1;
+            }
+    }
+    if (playersOnStart === 1) {
+            stageCnt = 1;
+        }
 }

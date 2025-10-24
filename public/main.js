@@ -38,10 +38,10 @@ function draw() {
     titleStage();
   } 
   else if (stageCnt === 1) {
-    platformer();
+    gameChoice();
   }
-  else {
-    
+  else if (stageCnt === 2){
+    platformer();
   }
 
   // Sends your position to the server
