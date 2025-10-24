@@ -1,10 +1,10 @@
 let socket;
 let myId;
-let player = {};
+let players = {};
 let x = 100, y = 100;
 
 function setup() {
-  createCanvas(600, 400);
+  createCanvas(canvW, canvH);
   socket = io();
 
   socket.on("connect", () => {
@@ -17,6 +17,20 @@ function setup() {
 
   socket.on("newPlayer", (data) => {
     players[data.id] = data;
+    for (let id in players) {
+      if (players[data.id].color === "blue") {
+        x = playerOneStartX
+        y = playerOneStartY
+      }
+      else if (players[data.id].color === "purple") {
+        x = playerTwoStartX
+        y = playerTwoStartY
+      }
+      else if (players[data.id].color === "orange") {
+        x = playerThreeStartX
+        y = playerThreeStartY
+      }
+    }
   });
 
   socket.on("playerMoved", (data) => {
@@ -32,13 +46,17 @@ function setup() {
 }
 
 function draw() {
-  background(220);
-
+  //background(220)
   // Player Move (change to dependent on stagechoice)
-  if (keyIsDown(LEFT_ARROW)) x -= 5;
-  if (keyIsDown(RIGHT_ARROW)) x += 5;
-  if (keyIsDown(UP_ARROW)) y -= 5;
-  if (keyIsDown(DOWN_ARROW)) y += 5;
+  if (stageCnt === 0) {
+    titleStage();
+  } 
+  else if (stageCnt === 1) {
+    platformer();
+  }
+  else {
+    
+  }
 
   // Sends your position to the server
   socket.emit("playerMove", { x, y });
