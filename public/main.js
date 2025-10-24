@@ -17,22 +17,19 @@ function setup() {
 
   socket.on("newPlayer", (data) => {
     players[data.id] = data;
-    for (let id in players) {
-      if (players[data.id].color === "blue") {
+      if (players[myId].color === "blue") {
         x = playerOneStartX
         y = playerOneStartY
       }
-      else if (players[data.id].color === "purple") {
+      else if (players[myId].color === "purple") {
         x = playerTwoStartX
         y = playerTwoStartY
       }
-      else if (players[data.id].color === "orange") {
+      else if (players[myid].color === "orange") {
         x = playerThreeStartX
         y = playerThreeStartY
     }
-    }
   });
-
   socket.on("playerMoved", (data) => {
     if (players[data.id]) {
       players[data.id].x = data.x;
@@ -45,6 +42,7 @@ function setup() {
   });
 }
 function draw() {
+  console.log(players[myId].color)
   //background(220)
   // Player Move (change to dependent on stagechoice)
   if (stageCnt === 0) {
