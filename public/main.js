@@ -34,18 +34,18 @@ function setup() {
 function draw() {
   background(220);
 
-  // Move your player
+  // Player Move (change to dependent on stagechoice)
   if (keyIsDown(LEFT_ARROW)) x -= 5;
   if (keyIsDown(RIGHT_ARROW)) x += 5;
   if (keyIsDown(UP_ARROW)) y -= 5;
   if (keyIsDown(DOWN_ARROW)) y += 5;
 
-  // Send your position to the server
+  // Sends your position to the server
   socket.emit("playerMove", { x, y });
 
-  // Draw all players
+  // goes through drawing all the different colors
   for (let id in players) {
     fill(players[id].color || "white");
-    ellipse(players[id].x, players[id].y, 40);
+    circle(players[id].x, players[id].y, 40);
   }
 }

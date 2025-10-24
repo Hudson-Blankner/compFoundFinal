@@ -14,9 +14,9 @@ io.on("connection", (socket) => {
 
   // Decide color based on join order
   let color = "white";
-  if (joinCount === 1) color = "purple";
-  else if (joinCount === 2) color = "orange";
-  else if (joinCount === 3) color = "blue";
+  if (joinCount === 1) color = "blue";
+  else if (joinCount === 2) color = "purple";
+  else if (joinCount === 3) color = "orange";
 
   // Add new player
   players[socket.id] = { x: 100, y: 100, color };
