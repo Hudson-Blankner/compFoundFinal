@@ -25,7 +25,7 @@ function setup() {
         x = playerTwoStartX
         y = playerTwoStartY
       }
-      else if (players[myid].color === "orange") {
+      else if (players[myId].color === "orange") {
         x = playerThreeStartX
         y = playerThreeStartY
     }
