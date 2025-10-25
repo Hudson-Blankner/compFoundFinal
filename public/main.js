@@ -38,6 +38,23 @@ function draw() {
     titleStage();
   } 
   else if (stageCnt === 1) {
+    if (titleSetup) {
+      for (let id in players) {
+       if (players[id].color === "blue") {
+        x = playerOneStartX
+        y = playerOneStartY
+       }
+       else if (players[id].color === "purple") {
+        x = playerTwoStartX
+        y = playerTwoStartY
+       }
+       else if (players[id].color === "orange") {
+        x = playerThreeStartX
+        y = playerThreeStartY
+       }
+      }
+    }
+    titleSetup = false;
     gameChoice();
   }
   else if (stageCnt === 2){
