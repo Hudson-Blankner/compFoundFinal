@@ -24,6 +24,7 @@ function titleStage(){
         titleTxt[0].draw();
         titleTxt[1].draw();
     }
+
     for (let id in players) {
         if (players[id].x > startBox.x && players[id].x < startBox.x+startBox.w && 
             players[id].y > startBox.y+150 && players[id].y < startBox.y+150+startBox.h) {
