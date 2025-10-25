@@ -13,6 +13,7 @@ function titleStage(){
             25, "By Hudson, Lucky, and Port-Dawg"
         ))
     }
+    fill(210)
     rect(startBox.x, startBox.y+150, startBox.w, startBox.h, 10)
     if (titleTxt.length > 0) {
         textAlign(CENTER, CENTER)
@@ -28,7 +29,7 @@ function titleStage(){
                 playersOnStart -= 1;
             }
     }
-    if (playersOnStart === 1) {
+    if (playersOnStart >= 1) {
             stageCnt = 1;
         }
 }
