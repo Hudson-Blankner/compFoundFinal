@@ -2,10 +2,11 @@
 let canvW = 1400
 let canvH = 700
 const canvMid = [canvW/2, canvH/2]
-let titleSetup = true;
 //                  ==== Global variables ====
 //                  ==== Stage variables ====
-let stageCnt = 0
+let titleSetup = true;
+let startButtonCount = 0;
+let stageCnt = 0;
 const startBoxW = 200; const startBoxH = 100;
 const startBox = {x: canvMid[0] -(startBoxW/2), y: canvMid[1], w: 200, h:100}
 let titleTxt = []

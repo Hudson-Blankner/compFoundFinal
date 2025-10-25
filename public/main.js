@@ -42,15 +42,15 @@ function draw() {
       for (let id in players) {
        if (players[id].color === "blue") {
         x = playerOneStartX
-        y = playerOneStartY
+        y = playerOneStartY+250
        }
        else if (players[id].color === "purple") {
         x = playerTwoStartX
-        y = playerTwoStartY
+        y = playerTwoStartY+250
        }
        else if (players[id].color === "orange") {
         x = playerThreeStartX
-        y = playerThreeStartY
+        y = playerThreeStartY+250
        }
       }
     }

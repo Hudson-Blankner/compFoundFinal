@@ -15,6 +15,10 @@ function titleStage(){
     }
     fill(210)
     rect(startBox.x, startBox.y+150, startBox.w, startBox.h, 10)
+    fill(255)
+    if (startButtonCount > 0) {
+        rect(startBox.x+10, startBox.y+160, startButtonCount, startBox.h-20, 10)
+        }
     if (titleTxt.length > 0) {
         textAlign(CENTER, CENTER)
         titleTxt[0].draw();
@@ -30,6 +34,15 @@ function titleStage(){
             }
     }
     if (playersOnStart >= 1) {
-            stageCnt = 1;
+        startButtonCount += 2;
         }
+        else {
+        if (startButtonCount > 0) {
+            startButtonCount -= 2;
+        }
+        }
+    if (startButtonCount >= 180) {
+        titleSet = true;
+        stageCnt = 1;
+    }
 }
