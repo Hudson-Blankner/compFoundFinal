@@ -1,10 +1,50 @@
 function titleStage(){
+    let canLeft = true;
+    let canRight = true;
+    let canUp = true;
+    let canDown = true;
     let playersOnStart = 0
     background(220)
-    if (keyIsDown(LEFT_ARROW)) x -= 5;
-    if (keyIsDown(RIGHT_ARROW)) x += 5;
-    if (keyIsDown(UP_ARROW)) y -= 5;
-    if (keyIsDown(DOWN_ARROW)) y += 5; 
+    for (let id in players) {
+        if (id != myId) {
+            if (players[myId].x >= players[id].x-40 && players[myId].x <= players[id].x-35 && 
+                players[myId].y >= players[id].y-40 && players[myId].y <= players[id].y+40) {
+                canRight = false;
+            } else {
+                canRight = true
+            }
+            if (players[myId].x <= players[id].x+40 && players[myId].x >= players[id].x+35 && 
+                players[myId].y >= players[id].y-40 && players[myId].y <= players[id].y+40) {
+                canLeft = false;
+            } else {
+                canLeft = true
+            }
+            if (players[myId].x >= players[id].x-40 && players[myId].x <= players[id].x+40 && 
+                players[myId].y >= players[id].y+35 && players[myId].y <= players[id].y+40) {
+                canUp = false;
+            } else {
+                canUp = true
+            }
+            if (players[myId].x >= players[id].x-40 && players[myId].x <= players[id].x+40 && 
+                players[myId].y >= players[id].y-40 && players[myId].y <= players[id].y-35) {
+                canDown = false;
+            } else {
+                canDown = true
+            }
+        }
+    }
+    if (canLeft) {
+        if (keyIsDown(LEFT_ARROW)) x -= 5;
+    }
+    if (canRight) {
+        if (keyIsDown(RIGHT_ARROW)) x += 5;
+    }
+    if (canUp) {
+        if (keyIsDown(UP_ARROW)) y -= 5;
+    }
+    if (canDown) {
+        if (keyIsDown(DOWN_ARROW)) y += 5; 
+    }
     
     if(titleTxt.length === 0){
         titleTxt.push(new titleText(canvMid[0], canvMid[1],"black", 0,
@@ -34,7 +74,7 @@ function titleStage(){
                 playersOnStart -= 1;
             }
     }
-    if (playersOnStart >= 1) {
+    if (playersOnStart >= 2) {
         startButtonCount += 2;
         }
         else {

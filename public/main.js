@@ -67,6 +67,11 @@ function draw() {
   // goes through drawing all the different colors
   for (let id in players) {
     fill(players[id].color || "white");
-    circle(players[id].x, players[id].y, 40);
+    if (id != myId) {
+      if(players[id].x === players[myId].x && players[id].y === players[myId].y) {
+        x += 100
+      }
+    }
+    square(players[id].x-20, players[id].y-20, 40);
   }
 }
