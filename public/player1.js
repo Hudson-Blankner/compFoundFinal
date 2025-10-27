@@ -5,5 +5,34 @@ class player1 {
         let w = 20;
         let h = 40;
     }
+    platGameBox() {
 
+    }
+    shipGameBox() {
+
+    }
+    gunGameBox() {
+        
+    }
+    mazeGameBox() {
+        
+    }
+    spaceGameBox() {
+
+    }
+    plinkGameBox() {
+
+    }
+    tronGameBox() {
+
+    }
+    fishingGameBox() {
+
+    }
+    duckHuntGameBox() {
+
+    }
+    game10GameBox() {
+
+    }
 }
