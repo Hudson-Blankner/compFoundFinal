@@ -32,7 +32,7 @@ class player1 {
     duckHuntGameBox() {
 
     }
-    game10GameBox() {
+    tankTroubleGameBox() {
 
     }
 }
