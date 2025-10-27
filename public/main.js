@@ -58,8 +58,8 @@ function draw() {
       }
     }
     titleSetup = false;
-    gameChoiceMusic.loop();
-    gameChoiceMusic.setVolume(0.5);
+    // gameChoiceMusic.loop();
+    // gameChoiceMusic.setVolume(0.5);
     gameChoice();
   }
   else if (stageCnt === 2){
