@@ -3,6 +3,12 @@ let canvW = 1400
 let canvH = 700
 const canvMid = [canvW/2, canvH/2]
 //                  ==== Global variables ====
+//                  ==== Wipe Function ====
+function wipe(){
+    titleTxt.length = 0
+}
+//                  ==== Wipe Function ====
+
 //                  ==== Stage variables ====
 let titleSetup = true;
 let startButtonCount = 0;
