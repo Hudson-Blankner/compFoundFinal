@@ -26,13 +26,13 @@ class player1 {
     tronGameBox() {
 
     }
-    fishingGameBox() {
+    tagGameBox() {
 
     }
-    duckHuntGameBox() {
+    huntGameBox() {
 
     }
-    tankTroubleGameBox() {
+    tankGameBox() {
 
     }
 }
