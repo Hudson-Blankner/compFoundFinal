@@ -10,7 +10,6 @@ function setup() {
   function preload() {
     gameChoiceMusic = loadSound('public/music/GameChoiceMusic.mp3');
   } 
-
   socket.on("connect", () => {
     myId = socket.id;
     x = playerTwoStartX;
@@ -59,9 +58,8 @@ function draw() {
       }
     }
     titleSetup = false;
-    gameMusicChoice.loop();
+    gameChoiceMusic.loop();
     gameChoiceMusic.setVolume(0.5);
-
     gameChoice();
   }
   else if (stageCnt === 2){
