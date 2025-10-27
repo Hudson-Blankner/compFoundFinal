@@ -11,6 +11,7 @@ function wipe(){
 }
 //                  ==== Wipe Function ====
 
+//                  ==== Calling in Sounds and images ====
 //                  ==== Stage variables ====
 let titleSetup = true;
 let startButtonCount = 0;

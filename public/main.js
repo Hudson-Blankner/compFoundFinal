@@ -2,10 +2,14 @@ let socket;
 let myId;
 let players = {};
 let x = 100, y = 100;
+let gameChoiceMusic;
 
 function setup() {
   createCanvas(canvW, canvH);
   socket = io();
+  function preload() {
+    gameChoiceMusic = loadSound('public/music/GameChoiceMusic.mp3');
+  } 
 
   socket.on("connect", () => {
     myId = socket.id;
@@ -55,6 +59,9 @@ function draw() {
       }
     }
     titleSetup = false;
+    gameMusicChoice.loop();
+    gameChoiceMusic.setVolume(0.5);
+
     gameChoice();
   }
   else if (stageCnt === 2){
