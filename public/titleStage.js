@@ -45,7 +45,8 @@ function titleStage(){
     if (canDown) {
         if (keyIsDown(DOWN_ARROW)) y += 5; 
     }
-    
+    fill(0)
+    text("Player Count: "+ playerCount, canvMid[0]-650, canvMid[1]-330);
     if(titleTxt.length === 0){
         titleTxt.push(new titleText(canvMid[0], canvMid[1],"black", 0,
             100, "Our Little Game"))
