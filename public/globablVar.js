@@ -14,6 +14,26 @@ function wipe(){
 //                  ==== Calling in Sounds and images ====
 
 //                  ==== Stage variables ====
+let playersOnPlat = 0
+let playersOnShip = 0
+let playersOnGun = 0
+let playersOnMaze = 0
+let playersOnSpace = 0
+let playersOnPlink = 0
+let playersOnTron = 0
+let playersOnTag = 0
+let playersOnHunt = 0
+let playersOnTank = 0
+let playersOnPlatCharge = 0
+let playersOnShipCharge = 0
+let playersOnGunCharge = 0
+let playersOnMazeCharge = 0
+let playersOnSpaceCharge = 0
+let playersOnPlinkCharge = 0
+let playersOnTronCharge = 0
+let playersOnTagCharge = 0
+let playersOnHuntCharge = 0
+let playersOnTankCharge = 0
 let titleSetup = true;
 let startButtonCount = 0;
 let stageCnt = 0;

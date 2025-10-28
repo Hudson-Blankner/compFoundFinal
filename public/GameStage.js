@@ -1,24 +1,4 @@
 function gameChoice(){
-    let playersOnPlat = 0
-    let playersOnShip = 0
-    let playersOnGun = 0
-    let playersOnMaze = 0
-    let playersOnSpace = 0
-    let playersOnPlink = 0
-    let playersOnTron = 0
-    let playersOnTag = 0
-    let playersOnHunt = 0
-    let playersOnTank = 0
-    let playersOnPlatCharge = 0
-    let playersOnShipCharge = 0
-    let playersOnGunCharge = 0
-    let playersOnMazeCharge = 0
-    let playersOnSpaceCharge = 0
-    let playersOnPlinkCharge = 0
-    let playersOnTronCharge = 0
-    let playersOnTagCharge = 0
-    let playersOnHuntCharge = 0
-    let playersOnTankCharge = 0
     background(220);
     //userStartAudio();
     if (keyIsDown(LEFT_ARROW)) x -= 5;
@@ -38,25 +18,14 @@ function gameChoice(){
     // rect(huntGameBox.x,huntGameBox.y,huntGameBox.w,huntGameBox.h,10)
     // rect(tankGameBox.x,tankGameBox.y,tankGameBox.w,tankGameBox.h,10)
 
-checkBox(platGameBox, playersOnPlatCharge, playersOnPlat, 1)
-checkBox(shipGameBox, playersOnShipCharge, playersOnShip, 2)
-checkBox(gunGameBox, playersOnGunCharge, playersOnGun, 3)
-checkBox(mazeGameBox, playersOnMazeCharge, playersOnMaze, 4)
-checkBox(spaceGameBox, playersOnSpaceCharge, playersOnSpace, 5)
-checkBox(plinkGameBox, playersOnPlinkCharge, playersOnPlink, 6)
-checkBox(tronGameBox, playersOnTronCharge, playersOnTron, 7)
-checkBox(tagGameBox, playersOnTagCharge, playersOnTag, 8)
-checkBox(huntGameBox, playersOnHuntCharge, playersOnHunt, 9)
-checkBox(tankGameBox, playersOnTankCharge, playersOnTank, 10)
     function checkBox(box, charge, game, gamenum) {
         fill(210)
         rect(box.x,box.y,box.w,box.h,10)
         fill(255)
         rect(box.x+5,box.y+5,charge,box.h-10)
         for (let id in players) {
-            console.log(players[id].x,players[id].y);
-            if (players[id].x > box.x && players[id].x < box.x+box.w && 
-                players[id].y > box.y && players[id].y < box.y+box.h) {
+            if (players[id].x > box.x && players[id].x < box.x+box.h && 
+                players[id].y > box.y && players[id].y < box.y+box.w) {
                 game += 1;
             }
             else {
@@ -76,5 +45,14 @@ checkBox(tankGameBox, playersOnTankCharge, playersOnTank, 10)
             stageCnt = gamenum+1;
     }
     }
-
+checkBox(platGameBox, playersOnPlatCharge, playersOnPlat, 1)
+// checkBox(shipGameBox, playersOnShipCharge, playersOnShip, 2)
+// checkBox(gunGameBox, playersOnGunCharge, playersOnGun, 3)
+// checkBox(mazeGameBox, playersOnMazeCharge, playersOnMaze, 4)
+// checkBox(spaceGameBox, playersOnSpaceCharge, playersOnSpace, 5)
+// checkBox(plinkGameBox, playersOnPlinkCharge, playersOnPlink, 6)
+// checkBox(tronGameBox, playersOnTronCharge, playersOnTron, 7)
+// checkBox(tagGameBox, playersOnTagCharge, playersOnTag, 8)
+// checkBox(huntGameBox, playersOnHuntCharge, playersOnHunt, 9)
+// checkBox(tankGameBox, playersOnTankCharge, playersOnTank, 10)
 }
