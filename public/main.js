@@ -65,6 +65,33 @@ function draw() {
   else if (stageCnt === 2){
     platformer();
   }
+  else if (stageCnt === 3){
+    spaceShipGame();
+  }
+  else if (stageCnt === 4){
+    gunGame();
+  }
+  else if (stageCnt === 5){
+    mazeGame();
+  }
+  else if (stageCnt === 6){
+    spaceGame();
+  }
+  else if (stageCnt === 7){
+    plinkoGame();
+  }
+  else if (stageCnt === 8){
+    tronGame();
+  }
+  else if (stageCnt === 9){
+    tagGame();
+  }
+  else if (stageCnt === 10){
+    huntGame();
+  }
+  else if (stageCnt === 11){
+    tankGame();
+  }
 
   // Sends your position to the server
   socket.emit("playerMove", { x, y });

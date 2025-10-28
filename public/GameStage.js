@@ -36,7 +36,7 @@ function gameChoice(){
                 if (players[id].color === "purple") {
                     purpleOn = 1
                 } else {purpleOn = 0}
-                if (players[id].color === "blue") {
+                if (players[id].color === "orange") {
                     orangeOn = 1
                 } else {orangeOn = 0}
                 game = blueOn + purpleOn + orangeOn;
