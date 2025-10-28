@@ -20,8 +20,10 @@ function gameChoice(){
     function checkBox(box, charge, game, gamenum) {
         fill(210)
         rect(box.x,box.y,box.w,box.h,10)
-        fill(255)
-        rect(box.x+5,box.y+5,charge,box.h-10)
+        if(charge > 0) {
+            fill(255)
+            rect(box.x+5,box.y+5,charge,box.h-10, 10)
+        }
         for (let id in players) {
             let blueOn = 0
             let purpleOn = 0
@@ -46,7 +48,7 @@ function gameChoice(){
             }
         }
         
-        if (game >= 1) {
+        if (game >= playerCount) {
             charge += 2;
         }
         else {
@@ -61,6 +63,42 @@ function gameChoice(){
         if (box === platGameBox) {
             playersOnPlat = game;
             playersOnPlatCharge = charge;
+        }
+        if (box === shipGameBox) {
+            playersOnShip = game;
+            playersOnShipCharge = charge;
+        }
+        if (box === gunGameBox) {
+            playersOnGun = game;
+            playersOnGunCharge = charge;
+        }
+        if (box === mazeGameBox) {
+            playersOnMaze = game;
+            playersOnMazeCharge = charge;
+        }
+        if (box === spaceGameBox) {
+            playersOnSpace = game;
+            playersOnSpaceCharge = charge;
+        }
+        if (box === plinkGameBox) {
+            playersOnPlink = game;
+            playersOnPlinkCharge = charge;
+        }
+        if (box === tronGameBox) {
+            playersOnTron = game;
+            playersOnTronCharge = charge;
+        }
+        if (box === tagGameBox) {
+            playersOnTag = game;
+            playersOnTagCharge = charge;
+        }
+        if (box === huntGameBox) {
+            playersOnHunt = game;
+            playersOnHuntCharge = charge;
+        }
+        if (box === tankGameBox) {
+            playersOnTank = game;
+            playersOnTankCharge = charge;
         }
     }
 checkBox(platGameBox, playersOnPlatCharge, playersOnPlat, 1)

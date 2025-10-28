@@ -2,6 +2,7 @@
 let canvW = 1400
 let canvH = 700
 const canvMid = [canvW/2, canvH/2]
+let playerCount = 0
 //                  ==== Global variables ====
 //                  ==== Wipe Function ====
 // this will be used to save memory by wipping lists between stages. Ideally it will be called ONCE-

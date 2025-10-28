@@ -71,6 +71,19 @@ function draw() {
 
   // goes through drawing all the different colors
   for (let id in players) {
+    let bluePlayerOn = 0;
+    let purplePlayerOn = 0;
+    let orangePlayerOn = 0;
+    if (players[id].color === "blue"){
+      bluePlayerOn = 1;
+    }
+    if (players[id].color === "purple"){
+      purplePlayerOn = 1;
+    }
+    if (players[id].color === "orange"){
+      orangePlayerOn = 1;
+    }
+    playerCount = bluePlayerOn+purplePlayerOn+orangePlayerOn
     fill(players[id].color || "white");
     if (id != myId) {
       if(players[id].x === players[myId].x && players[id].y === players[myId].y) {

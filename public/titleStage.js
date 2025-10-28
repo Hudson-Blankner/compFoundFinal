@@ -74,7 +74,7 @@ function titleStage(){
                 playersOnStart -= 1;
             }
     }
-    if (playersOnStart >= 1) {
+    if (playersOnStart >= playerCount) {
         startButtonCount += 2;
         }
         else {
