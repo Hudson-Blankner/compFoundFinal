@@ -59,6 +59,9 @@ function gameChoice(){
         if (charge >= 328) {
             titleSet = true;
             stageCnt = gamenum+1;
+            for (let id in players) {
+                players[id].stageCnt = gamenum+1;
+            }
         }
         if (box === platGameBox) {
             playersOnPlat = game;

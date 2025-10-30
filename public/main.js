@@ -1,7 +1,7 @@
 let socket;
 let myId;
 let players = {};
-let x = 100, y = 100;
+let x = 100, y = 100, r = 45;
 let gameChoiceMusic;
 
 function setup() {
@@ -9,7 +9,7 @@ function setup() {
   socket = io();
   function preload() {
     gameChoiceMusic = loadSound('public/music/GameChoiceMusic.mp3');
-  } 
+  }
   socket.on("connect", () => {
     myId = socket.id;
     x = playerTwoStartX;
@@ -92,10 +92,9 @@ function draw() {
   else if (stageCnt === 11){
     tankGame();
   }
-
+//stageCnt = players[myId].stageCnt;
   // Sends your position to the server
-  socket.emit("playerMove", { x, y });
-
+  socket.emit("playerMove", { x, y, r, stageCnt });
   // goes through drawing all the different colors
   for (let id in players) {
     let bluePlayerOn = 0;
@@ -117,6 +116,13 @@ function draw() {
         x += 100
       }
     }
-    square(players[id].x-20, players[id].y-20, 40);
+    push()
+    angleMode(DEGREES);
+    translate(players[id].x,players[id].y)
+    rotate(r);
+    square(-20,-20, 40);
+    pop()
   }
 }
+//node server.js
+//npx localtunnel --port 3000

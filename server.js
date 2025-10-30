@@ -20,20 +20,21 @@ io.on("connection", (socket) => {
   else if (joinCount > 3) joinCount -= 3;
 
   // Add new player
-  players[socket.id] = { x: 100, y: 100, color };
+  players[socket.id] = { x: 100, y: 100, r: 0, stageCnt: 0, color };
 
   // Send current players to new player
   socket.emit("currentPlayers", players);
 
   // Tell others about new player
-  socket.broadcast.emit("newPlayer", { id: socket.id, x: 100, y: 100, color });
+  socket.broadcast.emit("newPlayer", { id: socket.id, x: 100, y: 100, r:0, stageCnt: 0, color });
 
   // Handle movement
   socket.on("playerMove", (data) => {
     if (players[socket.id]) {
       players[socket.id].x = data.x;
       players[socket.id].y = data.y;
-      io.emit("playerMoved", { id: socket.id, x: data.x, y: data.y });
+      players[socket.id].r = data.r;
+      io.emit("playerMoved", { id: socket.id, x: data.x, y: data.y, r: data.r, stageCnt: data.stageCnt });
     }
   });
 
