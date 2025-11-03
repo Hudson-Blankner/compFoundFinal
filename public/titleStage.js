@@ -37,7 +37,10 @@ function titleStage(){
         if (keyIsDown(LEFT_ARROW)) x -= 5;
     }
     if (canRight) {
-        if (keyIsDown(RIGHT_ARROW)) x += 5;
+        if (keyIsDown(RIGHT_ARROW)) {
+            x += 5;
+            //r += 5;
+        }
     }
     if (canUp) {
         if (keyIsDown(UP_ARROW)) y -= 5;
@@ -85,9 +88,9 @@ function titleStage(){
         }
     if (startButtonCount >= 180) {
         titleSet = true;
-        stageCnt = 1;
+        stage = 1;
         for (let id in players) {
-                players[id].stageCnt = 1;
-            }
+            players[id].stage = 1;
+        }
     }
 }

@@ -1,7 +1,7 @@
 let socket;
 let myId;
 let players = {};
-let x = 100, y = 100, r = 45;
+let x = 100, y = 100, r = 0, stage = 0;
 let gameChoiceMusic;
 
 function setup() {
@@ -27,6 +27,8 @@ function setup() {
     if (players[data.id]) {
       players[data.id].x = data.x;
       players[data.id].y = data.y;
+      players[data.id].r = data.r;
+      players[data.id].stage = data.stage;
     }
   });
 
@@ -37,10 +39,10 @@ function setup() {
 function draw() {
   //background(220)
   // Player Move (change to dependent on stagechoice)
-  if (stageCnt === 0) {
+  if (players[myId].stage === 0) {
     titleStage();
   } 
-  else if (stageCnt === 1) {
+  else if (players[myId].stage === 1) {
     if (titleSetup) {
       for (let id in players) {
        if (players[id].color === "blue") {
@@ -62,39 +64,42 @@ function draw() {
     // gameChoiceMusic.setVolume(0.5);
     gameChoice();
   }
-  else if (stageCnt === 2){
+  else if (players[myId].stage === 2){
     platformer();
   }
-  else if (stageCnt === 3){
+  else if (players[myId].stage === 3){
     spaceShipGame();
   }
-  else if (stageCnt === 4){
+  else if (players[myId].stage === 4){
     gunGame();
   }
-  else if (stageCnt === 5){
+  else if (players[myId].stage === 5){
     mazeGame();
   }
-  else if (stageCnt === 6){
+  else if (players[myId].stage === 6){
     spaceGame();
   }
-  else if (stageCnt === 7){
+  else if (players[myId].stage === 7){
     plinkoGame();
   }
-  else if (stageCnt === 8){
+  else if (players[myId].stage === 8){
     tronGame();
   }
-  else if (stageCnt === 9){
+  else if (players[myId].stage === 9){
     tagGame();
   }
-  else if (stageCnt === 10){
+  else if (players[myId].stage === 10){
     huntGame();
   }
-  else if (stageCnt === 11){
+  else if (players[myId].stage === 11){
     tankGame();
   }
-//stageCnt = players[myId].stageCnt;
+
+  //stageCnt = stage;
+
   // Sends your position to the server
-  socket.emit("playerMove", { x, y, r, stageCnt });
+  socket.emit("playerMove", { x, y, r, stage});
+  
   // goes through drawing all the different colors
   for (let id in players) {
     let bluePlayerOn = 0;
@@ -119,7 +124,7 @@ function draw() {
     push()
     angleMode(DEGREES);
     translate(players[id].x,players[id].y)
-    rotate(r);
+    rotate(players[id].r);
     square(-20,-20, 40);
     pop()
   }
