@@ -46,6 +46,7 @@ io.on("connection", (socket) => {
     io.emit("playerDisconnected", socket.id);
   });
 });
+//socket = io("http://localhost:3000");
 
 const PORT = 3000;
 http.listen(PORT, () => console.log(`Server running on port ${PORT}`));
