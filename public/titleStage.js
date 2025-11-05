@@ -92,5 +92,6 @@ function titleStage(){
         for (let id in players) {
             players[id].stage = 1;
         }
+        console.log(players[myId].stage);
     }
 }
