@@ -101,10 +101,10 @@ function draw() {
   socket.emit("playerMove", { x, y, r, stage});
   
   // goes through drawing all the different colors
+  let bluePlayerOn = 0;
+  let purplePlayerOn = 0;
+  let orangePlayerOn = 0;
   for (let id in players) {
-    let bluePlayerOn = 0;
-    let purplePlayerOn = 0;
-    let orangePlayerOn = 0;
     if (players[id].color === "blue"){
       bluePlayerOn = 1;
     }

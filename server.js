@@ -38,7 +38,7 @@ io.on("connection", (socket) => {
       io.emit("playerMoved", { id: socket.id, x: data.x, y: data.y, r: data.r, stage: data.stage});
     }
   });
-
+  
   // Handle disconnect
   socket.on("disconnect", () => {
     console.log("Player disconnected:", socket.id);
