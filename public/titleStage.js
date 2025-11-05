@@ -89,9 +89,5 @@ function titleStage(){
     if (startButtonCount >= 180) {
         titleSet = true;
         stage = 1;
-        for (let id in players) {
-            players[id].stage = 1;
-        }
-        console.log(players[myId].stage);
     }
 }

@@ -1,7 +1,7 @@
 let socket;
 let myId;
 let players = {};
-let x = 100, y = 100, r = 0, stage = 0;
+let x = 100, y = 100, r = 0, stage = 0, ingame = false;
 let gameChoiceMusic;
 
 function setup() {
@@ -44,20 +44,18 @@ function draw() {
   } 
   else if (players[myId].stage === 1) {
     if (titleSetup) {
-      for (let id in players) {
-       if (players[id].color === "blue") {
+       if (players[myId].color === "blue") {
         x = playerOneStartX
         y = playerOneStartY+250
        }
-       else if (players[id].color === "purple") {
+       else if (players[myId].color === "purple") {
         x = playerTwoStartX
         y = playerTwoStartY+250
        }
-       else if (players[id].color === "orange") {
+       else if (players[myId].color === "orange") {
         x = playerThreeStartX
         y = playerThreeStartY+250
        }
-      }
     }
     titleSetup = false;
     // gameChoiceMusic.loop();
@@ -127,6 +125,12 @@ function draw() {
     rotate(players[id].r);
     square(-20,-20, 40);
     pop()
+    if (players[id].stage > stage && ingame === false) {
+      stage = players[id].stage;
+    }
+    if (players[id].stage < stage && ingame === true) {
+      stage = players[id].stage;
+    }
   }
 }
 //node server.js

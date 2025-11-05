@@ -26,10 +26,10 @@ function gameChoice(){
             fill(255)
             rect(box.x+5,box.y+5,charge,box.h-10, 10)
         }
+        let blueOn = 0
+        let purpleOn = 0
+        let orangeOn = 0
         for (let id in players) {
-            let blueOn = 0
-            let purpleOn = 0
-            let orangeOn = 0
             if (players[id].x > box.x && players[id].x < box.x+box.w && 
                 players[id].y > box.y && players[id].y < box.y+box.h) {
                 if (players[id].color === "blue") {
@@ -60,10 +60,8 @@ function gameChoice(){
         }
         if (charge >= 328) {
             titleSet = true;
-            stageCnt = gamenum+1;
-            for (let id in players) {
-                players[id].stageCnt = gamenum+1;
-            }
+            ingame = true;
+            stage = gamenum+1;
         }
         if (box === platGameBox) {
             playersOnPlat = game;
