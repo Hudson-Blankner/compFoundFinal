@@ -17,9 +17,11 @@ function gameChoice(){
     // rect(tagGameBox.x,tagGameBox.y,tagGameBox.w,tagGameBox.h,10)
     // rect(huntGameBox.x,huntGameBox.y,huntGameBox.w,huntGameBox.h,10)
     // rect(tankGameBox.x,tankGameBox.y,tankGameBox.w,tankGameBox.h,10)
-    function checkBox(box, charge, game, gamenum) {
+    function checkBox(box, charge, game, gamenum, gamename) {
         fill(210)
         rect(box.x,box.y,box.w,box.h,10)
+        fill(100)
+        text(gamename, box.x+100, box.y+100)
         if(charge > 0) {
             fill(255)
             rect(box.x+5,box.y+5,charge,box.h-10, 10)
@@ -104,14 +106,14 @@ function gameChoice(){
             playersOnTankCharge = charge;
         }
     }
-checkBox(platGameBox, playersOnPlatCharge, playersOnPlat, 1)
-checkBox(shipGameBox, playersOnShipCharge, playersOnShip, 2)
-checkBox(gunGameBox, playersOnGunCharge, playersOnGun, 3)
-checkBox(mazeGameBox, playersOnMazeCharge, playersOnMaze, 4)
-checkBox(spaceGameBox, playersOnSpaceCharge, playersOnSpace, 5)
-checkBox(plinkGameBox, playersOnPlinkCharge, playersOnPlink, 6)
-checkBox(tronGameBox, playersOnTronCharge, playersOnTron, 7)
-checkBox(tagGameBox, playersOnTagCharge, playersOnTag, 8)
-checkBox(huntGameBox, playersOnHuntCharge, playersOnHunt, 9)
-checkBox(tankGameBox, playersOnTankCharge, playersOnTank, 10)
+checkBox(platGameBox, playersOnPlatCharge, playersOnPlat, 1, "plat")
+checkBox(shipGameBox, playersOnShipCharge, playersOnShip, 2, "ship")
+checkBox(gunGameBox, playersOnGunCharge, playersOnGun, 3, "gun")
+checkBox(mazeGameBox, playersOnMazeCharge, playersOnMaze, 4, "maze")
+checkBox(spaceGameBox, playersOnSpaceCharge, playersOnSpace, 5, "space")
+checkBox(plinkGameBox, playersOnPlinkCharge, playersOnPlink, 6, "plink")
+checkBox(tronGameBox, playersOnTronCharge, playersOnTron, 7, "tron")
+checkBox(tagGameBox, playersOnTagCharge, playersOnTag, 8, "tag")
+checkBox(huntGameBox, playersOnHuntCharge, playersOnHunt, 9, "hunt")
+checkBox(tankGameBox, playersOnTankCharge, playersOnTank, 10, "tank")
 }
