@@ -32,15 +32,18 @@ function gameChoice(){
         for (let id in players) {
             if (players[id].x > box.x && players[id].x < box.x+box.w && 
                 players[id].y > box.y && players[id].y < box.y+box.h) {
-                if (players[id].color === "blue") {
-                    blueOn = 1
-                } else {blueOn = 0}
-                if (players[id].color === "purple") {
-                    purpleOn = 1
-                } else {purpleOn = 0}
-                if (players[id].color === "orange") {
-                    orangeOn = 1
-                } else {orangeOn = 0}
+                if (players[id].color === "blue") blueOn = 1;
+                if (players[id].color === "purple") purpleOn = 1;
+                if (players[id].color === "orange") orangeOn = 1;
+                // if (players[id].color === "blue") {
+                //     blueOn = 1
+                // } else {blueOn = 0}
+                // if (players[id].color === "purple") {
+                //     purpleOn = 1
+                // } else {purpleOn = 0}
+                // if (players[id].color === "orange") {
+                //     orangeOn = 1
+                // } else {orangeOn = 0}
                 game = blueOn + purpleOn + orangeOn;
             }
             else {
@@ -62,6 +65,7 @@ function gameChoice(){
             titleSet = true;
             ingame = true;
             stage = gamenum+1;
+            players[myId].stage = stage;
         }
         if (box === platGameBox) {
             playersOnPlat = game;
