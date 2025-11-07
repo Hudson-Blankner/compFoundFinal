@@ -2,14 +2,14 @@ let socket;
 let myId;
 let players = {};
 let x = 100, y = 100, r = 0, stage = 0, ingame = false;
-let gameChoiceMusic;
+// let gameChoiceMusic;
 
 function setup() {
   createCanvas(canvW, canvH);
   socket = io();
-  function preload() {
-    gameChoiceMusic = loadSound('public/music/GameChoiceMusic.mp3');
-  }
+  // function preload() {
+  //   gameChoiceMusic = loadSound('public/music/GameChoiceMusic.mp3');
+  // }
   socket.on("connect", () => {
     myId = socket.id;
     x = playerTwoStartX;
