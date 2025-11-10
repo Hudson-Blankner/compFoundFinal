@@ -17,7 +17,9 @@ function wipe(){
 //                  ==== Stage variables ====
 
 //                  ==== mazeShit ====
-let mazeX = 33;
+let mazeSizeX = 1400;
+let mazeSizeY = 700;
+let mazeX = 65;
 let mazeY = 33;
 let mazeArray;
 let mazeWalker = [0,0];
@@ -184,11 +186,40 @@ class titleText {
 }
 //                  ==== Stage variables ====
 //                  ==== Tag variables ====
-// class pllayerCollision {
-//     constructor(x,y){
-//         this.x = x; this.y = y;
-//     }
-// }
+class playerCollision {
+    constructor(canRight, canLeft , canDown, canUp){
+        this.canRight = true
+        this.canLeft = true
+        this.canDown = true
+        this.canUp = true
+    }
+    basicPlayerCollision(){
+        for (let id in players) {
+            if (id != myId) {
+                if (players[myId].x >= players[id].x-40){this.canRight = false} else {this.canRight = true}
+                if (players[myId].x <= players[id].x+40){this.canLeft = false} else {this.canLeft = true}
+                if (players[myId].y >= players[id].y-40){this.canDown = false} else {this.canDown = true}
+                if (players[myId].y <= players[id].y+40){this.canUp = false} else {this.canUp = true}
+            }
+        }
+    }
+    basicPlayerMovement(){
+        if (this.canLeft) {
+            if (keyIsDown(LEFT_ARROW)) x -= 5;
+        }
+        if (this.canRight) {
+            if (keyIsDown(RIGHT_ARROW)) {
+              x += 5;
+            }
+        }
+        if (this.canUp) {
+            if (keyIsDown(UP_ARROW)) y -= 5;
+        }
+        if (this.canDown) {
+            if (keyIsDown(DOWN_ARROW)) y += 5; 
+        }
+    }
+}
 //                  ==== Tag variables ====
 
 

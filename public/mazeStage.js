@@ -1,5 +1,5 @@
 function mazeGame(){
-    background(220)
+    background(0)
     function walls()
 {
   for (let sx = 0; sx < mazeX; sx += 1) 
@@ -8,15 +8,15 @@ function mazeGame(){
     {
       if (mazeArray[sx][sy][0])
         {
-          if ((mazeArray[sx][sy][1]) === false)
+          if ((mazeArray[sx][sy][1]) === false && mazeArray[sx][sy][2] === false && mazeArray[sx][sy][3] === false)
             {
             noStroke()
-            fill(255-255/(mazeX/sx),150-0/(mazeY/sy),255/(mazeX/sx))
-            square(sx*(int(mazeSize/mazeX)), sy*(int(mazeSize/mazeY)), int(mazeSize/mazeX))
+            fill(255)
+            rect(sx*(int(mazeSizeX/mazeX)), sy*(int(mazeSizeY/mazeY)), int(mazeSizeX/mazeX), int(mazeSizeY/mazeY))
             } else 
               {
-              fill(255/(mazeX/sx),0-0/(mazeY/sy),255-255/(mazeX/sx))
-              square(sx*(int(mazeSize/mazeX)), sy*(int(mazeSize/mazeY)), int(mazeSize/mazeX))
+              fill(players[myId].color);
+              rect(sx*(int(mazeSizeX/mazeX)), sy*(int(mazeSizeY/mazeY)), int(mazeSizeX/mazeX), int(mazeSizeY/mazeY))
               }
           }
       }

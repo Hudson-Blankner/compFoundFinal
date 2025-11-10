@@ -6,9 +6,10 @@ function tagGame(){
     tagText.push(new titleText(canvMid[0],canvMid[1],"black",0,40, "Tag Game!"))
     tagText[0].draw();
     
-
-    if (keyIsDown(LEFT_ARROW)) x -= 5;
-    if (keyIsDown(RIGHT_ARROW)) x += 5;
-    if (keyIsDown(UP_ARROW)) y -= 5;
-    if (keyIsDown(DOWN_ARROW)) y += 5; 
+    
+    // if (keyIsDown(LEFT_ARROW)) x -= 5;
+    // if (keyIsDown(RIGHT_ARROW)) x += 5;
+    // if (keyIsDown(UP_ARROW)) y -= 5;
+    // if (keyIsDown(DOWN_ARROW)) y += 5; 
+    
 }

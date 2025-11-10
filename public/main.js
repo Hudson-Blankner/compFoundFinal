@@ -1,7 +1,7 @@
 let socket;
 let myId;
 let players = {};
-let x = 100, y = 100, r = 0, stage = 0, ingame = false;
+let x = 100, y = 100, r = 0, stage = 0, ingame = false, stageVar1;
 // let gameChoiceMusic;
 
 function setup() {
@@ -29,6 +29,7 @@ function setup() {
       players[data.id].y = data.y;
       players[data.id].r = data.r;
       players[data.id].stage = data.stage;
+      players[data.id].color = data.color;
     }
   });
 
@@ -73,8 +74,8 @@ function draw() {
   }
   else if (players[myId].stage === 5){
     if (titleSetup) {
-       x = 0;
-       y = 0;
+       x = 20;
+       y = 20;
        for (let i = 0; i < mazeX; i++) 
         {
         mazeArray[i] = [];
@@ -146,8 +147,10 @@ function draw() {
     playerCount = bluePlayerOn+purplePlayerOn+orangePlayerOn
     fill(players[id].color || "white");
     if (id != myId) {
-      if(players[id].x === players[myId].x && players[id].y === players[myId].y) {
-        x += 100
+      if (players[myId].stage != 5){
+        if(players[id].x === players[myId].x && players[id].y === players[myId].y) {
+          x += 100
+        }
       }
     }
     push()
