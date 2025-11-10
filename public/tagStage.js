@@ -1,9 +1,11 @@
 function tagGame(){
     background(220)
     let tagDoors = []
+    let tagText = []
     titleTxt.length = 0
-    titleTxt.push(new titleText(canvMid[0],canvMid[1],"black",0,100, "Tag Game!"))
-    titleTxt[0].draw();
+    tagText.push(new titleText(canvMid[0],canvMid[1],"black",0,40, "Tag Game!"))
+    tagText[0].draw();
+    
 
     if (keyIsDown(LEFT_ARROW)) x -= 5;
     if (keyIsDown(RIGHT_ARROW)) x += 5;

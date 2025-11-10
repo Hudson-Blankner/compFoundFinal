@@ -15,6 +15,115 @@ function wipe(){
 //                  ==== Calling in Sounds and images ====
 
 //                  ==== Stage variables ====
+
+//                  ==== mazeShit ====
+let mazeX = 33;
+let mazeY = 33;
+let mazeArray;
+let mazeWalker = [0,0];
+let openSpace = [];
+let direction;
+let possPath = [[0,0]];
+function mazeEater()
+{
+  if (mazeArray[mazeWalker[0]][mazeWalker[1]][0] === false)
+    {
+      mazeArray[mazeWalker[0]][mazeWalker[1]][0] = true;
+    }
+  openSpace = [];
+  //left
+  if (mazeWalker[0] != 0)
+    {
+      if (mazeWalker[0] === mazeX-1 && mazeWalker[1] === mazeY-1) 
+        {} else {
+          if (mazeArray[mazeWalker[0]-2][mazeWalker[1]][0] === false)
+          {
+            append(openSpace, 4)
+          }    
+        }
+    }
+  //right
+  if (mazeWalker[0] != mazeX - 1)
+    {
+      if (mazeArray[mazeWalker[0]+2][mazeWalker[1]][0] === false)
+        {
+          append(openSpace, 2)
+        }
+    }
+  //up
+  if (mazeWalker[1] != 0)
+    {
+      if (mazeWalker[0] === mazeX-1 && mazeWalker[1] === mazeY-1) 
+        {} else {
+      if (mazeArray[mazeWalker[0]][mazeWalker[1]-2][0] === false)
+        {
+          append(openSpace, 1)
+        }
+        }
+    } 
+  //down
+  if (mazeWalker[1] != mazeY - 1)
+    {
+      if (mazeArray[mazeWalker[0]][mazeWalker[1]+2][0] === false)
+        {
+          append(openSpace, 3)
+        }
+    }
+  if (openSpace != []) 
+    {
+    direction = openSpace[getRandomInteger(0,openSpace.length)]
+    if (direction === 1)
+      {
+      if (openSpace.length > 1) 
+      {
+        append(possPath, [mazeWalker[0],mazeWalker[1]])
+      }
+      mazeArray[mazeWalker[0]][mazeWalker[1]-1][0] = true
+      mazeWalker = [mazeWalker[0],mazeWalker[1]-2]
+      }
+    if (direction === 2)
+      {
+      if (openSpace.length > 1) 
+      {
+        append(possPath, [mazeWalker[0],mazeWalker[1]])
+      }
+      mazeArray[mazeWalker[0]+1][mazeWalker[1]][0] = true
+      mazeWalker = [mazeWalker[0]+2,mazeWalker[1]]
+      }
+    if (direction === 3)
+      {
+      if (openSpace.length > 1) 
+      {
+        append(possPath, [mazeWalker[0],mazeWalker[1]])
+      }
+      mazeArray[mazeWalker[0]][mazeWalker[1]+1][0] = true
+      mazeWalker = [mazeWalker[0],mazeWalker[1]+2]
+      }
+    if (direction === 4)
+      {
+      if (openSpace.length > 1) 
+      {
+        append(possPath, [mazeWalker[0],mazeWalker[1]])
+      }
+      mazeArray[mazeWalker[0]-1][mazeWalker[1]][0] = true
+      mazeWalker = [mazeWalker[0]-2,mazeWalker[1]]
+      }
+    }
+  if (openSpace.length === 0) 
+    {
+      if (possPath.length != 0)
+          {
+            mazeWalker = [possPath[possPath.length-1][0], possPath[possPath.length-1][1]]
+            shorten(possPath)
+          }
+    }
+  if (mazeWalker[0] === mazeX-1 && mazeWalker[1] === mazeY-1) 
+    {
+      mazeArray[mazeWalker[0]][mazeWalker[1]][2] = true
+    }
+}
+//                  ==== mazeShit ====
+
 let playersOnPlat = 0
 let playersOnShip = 0
 let playersOnGun = 0
@@ -74,5 +183,12 @@ class titleText {
     }
 }
 //                  ==== Stage variables ====
+//                  ==== Tag variables ====
+// class pllayerCollision {
+//     constructor(x,y){
+//         this.x = x; this.y = y;
+//     }
+// }
+//                  ==== Tag variables ====
 
 

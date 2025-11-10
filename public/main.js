@@ -72,6 +72,22 @@ function draw() {
     gunGame();
   }
   else if (players[myId].stage === 5){
+    if (titleSetup) {
+       x = 0;
+       y = 0;
+       for (let i = 0; i < mazeX; i++) 
+        {
+        mazeArray[i] = [];
+        for (let j = 0; j < mazeY; j++) 
+        {
+          mazeArray[i][j] = [false, false, false, false];
+        }
+        }
+        while (possPath.length != 0) {
+          mazeEater();
+        }
+    }
+    titleSetup = false;
     mazeGame();
   }
   else if (players[myId].stage === 6){
@@ -84,7 +100,22 @@ function draw() {
     tronGame();
   }
   else if (players[myId].stage === 9){
-    tagGame();
+    if(titleSetup){
+       if (players[myId].color === "blue") {
+        x = playerOneStartX
+        y = playerOneStartY+350
+       }
+       else if (players[myId].color === "purple") {
+        x = playerTwoStartX
+        y = playerTwoStartY+350
+       }
+       else if (players[myId].color === "orange") {
+        x = playerThreeStartX
+        y = playerThreeStartY+350
+       }
+    }
+        titleSetup = false;    
+        tagGame();
   }
   else if (players[myId].stage === 10){
     huntGame();
