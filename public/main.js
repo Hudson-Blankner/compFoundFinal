@@ -29,7 +29,7 @@ function setup() {
       players[data.id].y = data.y;
       players[data.id].r = data.r;
       players[data.id].stage = data.stage;
-      players[data.id].color = data.color;
+      //players[data.id].color = data.color;
     }
   });
 
