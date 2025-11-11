@@ -1,7 +1,7 @@
 let socket;
 let myId;
 let players = {};
-let x = 100, y = 100, r = 0, stage = 0, ingame = false, stageVar1;
+let x = 100, y = 100, r = 0, stage = 0, ingame = false;
 // let gameChoiceMusic;
 
 function setup() {
