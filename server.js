@@ -3,7 +3,15 @@ const app = express();
 const http = require("http").createServer(app);
 const io = require("socket.io")(http);
 
-app.use(express.static("public"));
+app.use(
+  express.static("public", {
+    setHeaders: (res, path) => {
+      if (path.endsWith(".js")) {
+        res.setHeader("Content-Type", "application/javascript");
+      }
+    },
+  })
+);
 
 let players = {};
 let joinCount = 0; // keeps track of join order
@@ -26,7 +34,14 @@ io.on("connection", (socket) => {
   socket.emit("currentPlayers", players);
 
   // Tell others about new player
-  socket.broadcast.emit("newPlayer", { id: socket.id, x: 100, y: 100, r:0, stage:0, color });
+  socket.broadcast.emit("newPlayer", {
+    id: socket.id,
+    x: 100,
+    y: 100,
+    r: 0,
+    stage: 0,
+    color,
+  });
 
   // Handle movement
   socket.on("playerMove", (data) => {
@@ -35,10 +50,16 @@ io.on("connection", (socket) => {
       players[socket.id].y = data.y;
       players[socket.id].r = data.r;
       players[socket.id].stage = data.stage;
-      io.emit("playerMoved", { id: socket.id, x: data.x, y: data.y, r: data.r, stage: data.stage});
+      io.emit("playerMoved", {
+        id: socket.id,
+        x: data.x,
+        y: data.y,
+        r: data.r,
+        stage: data.stage,
+      });
     }
   });
-  
+
   // Handle disconnect
   socket.on("disconnect", () => {
     console.log("Player disconnected:", socket.id);
