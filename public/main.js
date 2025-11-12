@@ -15,7 +15,7 @@ function setup() {
     x = playerTwoStartX;
     y = playerTwoStartY;
   });
-
+ 
   socket.on("currentPlayers", (serverPlayers) => {
     players = serverPlayers;
   });
