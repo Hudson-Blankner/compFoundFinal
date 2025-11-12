@@ -80,6 +80,7 @@ function gameChoice(){
             playersOnGunCharge = charge;
         }
         if (box === mazeGameBox) {
+            titleSet = true;
             playersOnMaze = game;
             playersOnMazeCharge = charge;
         }

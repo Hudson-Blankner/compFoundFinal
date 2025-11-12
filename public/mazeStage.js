@@ -6,7 +6,7 @@ function mazeGame(){
   {
     for (let sy = 0; sy < mazeY; sy += 1) 
     {
-      if (mazeArray[sx][sy][0])
+      if (mazeArray[sx][sy][0] === false)
         {
           if ((mazeArray[sx][sy][1]) === false && mazeArray[sx][sy][2] === false && mazeArray[sx][sy][3] === false)
             {
