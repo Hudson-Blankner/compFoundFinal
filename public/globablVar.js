@@ -26,6 +26,12 @@ let mazeWalker = [0,0];
 let openSpace = [];
 let direction;
 let possPath = [[0,0]];
+function getRandomInteger(min, max) 
+{
+  min = Math.ceil(min); // Ensure min is a whole number (rounds up)
+  max = Math.floor(max); // Ensure max is a whole number (rounds down)
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
 function mazeEater()
 {
   if (mazeArray[mazeWalker[0]][mazeWalker[1]][0] === false)
