@@ -7,26 +7,26 @@ function titleStage(){
     background(220)
     for (let id in players) {
         if (id != myId) {
-            if (players[myId].x >= players[id].x-40 && players[myId].x <= players[id].x-35 && 
+            if (players[myId].x >= players[id].x-40 && players[myId].x <= players[id].x-15 && 
                 players[myId].y >= players[id].y-40 && players[myId].y <= players[id].y+40) {
                 canRight = false;
             } else {
                 canRight = true
             }
-            if (players[myId].x <= players[id].x+40 && players[myId].x >= players[id].x+35 && 
+            if (players[myId].x <= players[id].x+40 && players[myId].x >= players[id].x+15 && 
                 players[myId].y >= players[id].y-40 && players[myId].y <= players[id].y+40) {
                 canLeft = false;
             } else {
                 canLeft = true
             }
             if (players[myId].x >= players[id].x-40 && players[myId].x <= players[id].x+40 && 
-                players[myId].y >= players[id].y+35 && players[myId].y <= players[id].y+40) {
+                players[myId].y >= players[id].y+15 && players[myId].y <= players[id].y+40) {
                 canUp = false;
             } else {
                 canUp = true
             }
             if (players[myId].x >= players[id].x-40 && players[myId].x <= players[id].x+40 && 
-                players[myId].y >= players[id].y-40 && players[myId].y <= players[id].y-35) {
+                players[myId].y >= players[id].y-40 && players[myId].y <= players[id].y-15) {
                 canDown = false;
             } else {
                 canDown = true
