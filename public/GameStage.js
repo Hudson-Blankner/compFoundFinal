@@ -62,7 +62,7 @@ function gameChoice(){
         }
         }
         if (charge >= 328) {
-            titleSet = true;
+            gameIsOn = true;
             ingame = true;
             stage = gamenum+1;
             players[myId].stage = stage;
@@ -80,7 +80,6 @@ function gameChoice(){
             playersOnGunCharge = charge;
         }
         if (box === mazeGameBox) {
-            titleSet = true;
             playersOnMaze = game;
             playersOnMazeCharge = charge;
         }

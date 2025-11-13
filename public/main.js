@@ -74,7 +74,7 @@ function draw() {
   } else if (players[myId].stage === 4) {
     gunGame();
   } else if (players[myId].stage === 5) {
-    if (titleSetup) {
+    if (gameIsOn) {
       x = 20;
       y = 20;
       for (let i = 0; i < mazeX; i++) {
@@ -87,7 +87,7 @@ function draw() {
         mazeEater();
       }
     }
-    titleSetup = false;
+    gameIsOn = false;
     mazeGame();
   } else if (players[myId].stage === 6) {
     spaceGame();

@@ -17,11 +17,12 @@ function wipe(){
 //                  ==== Stage variables ====
 
 //                  ==== mazeShit ====
+let gameIsOn = false;
 let mazeSizeX = 1400;
 let mazeSizeY = 700;
 let mazeX = 65;
 let mazeY = 33;
-let mazeArray;
+let mazeArray = [];
 let mazeWalker = [0,0];
 let openSpace = [];
 let direction;
