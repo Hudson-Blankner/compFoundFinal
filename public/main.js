@@ -96,19 +96,6 @@ function draw() {
   } else if (players[myId].stage === 8) {
     tronGame();
   } else if (players[myId].stage === 9) {
-    if (titleSetup) {
-      if (players[myId].color === "blue") {
-        x = playerOneStartX;
-        y = playerOneStartY + 350;
-      } else if (players[myId].color === "purple") {
-        x = playerTwoStartX;
-        y = playerTwoStartY + 350;
-      } else if (players[myId].color === "orange") {
-        x = playerThreeStartX;
-        y = playerThreeStartY + 350;
-      }
-    }
-    titleSetup = false;
     tagGame();
   } else if (players[myId].stage === 10) {
     huntGame();
