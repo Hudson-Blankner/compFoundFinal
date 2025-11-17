@@ -147,9 +147,9 @@ function draw() {
     if (players[id].stage > stage && ingame === false) {
       stage = players[id].stage;
     }
-    if (players[id].stage < stage && ingame === true) {
-      stage = players[id].stage;
-    }
+    //if (players[id].stage < stage && ingame === true) {
+    //  stage = players[id].stage;
+    //}
   }
 }
 //ngrok http 3000
