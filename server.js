@@ -74,3 +74,5 @@ http.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
 //ngrok http 3000
 //node server.js
+//whenn you cant pull/push, type the following into the terminal:
+//git pull origin main --rebase
