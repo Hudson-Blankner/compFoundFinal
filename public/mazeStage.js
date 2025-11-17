@@ -12,14 +12,15 @@ function mazeGame(){
             {
             noStroke()
             fill(255)
-            rect(sx*(int(mazeSizeX/mazeX)), sy*(int(mazeSizeY/mazeY)), int(mazeSizeX/mazeX), int(mazeSizeY/mazeY))
+            rect(sx*((mazeSizeX/mazeX)), sy*((mazeSizeY/mazeY)), (mazeSizeX/mazeX), (mazeSizeY/mazeY))
             } else 
               {
               fill(players[myId].color);
-              rect(sx*(int(mazeSizeX/mazeX)), sy*(int(mazeSizeY/mazeY)), int(mazeSizeX/mazeX), int(mazeSizeY/mazeY))
+              rect(sx*((mazeSizeX/mazeX)), sy*((mazeSizeY/mazeY)), (mazeSizeX/mazeX), (mazeSizeY/mazeY))
               }
           }
       }
   }
 }
+walls();
 }
