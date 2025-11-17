@@ -17,6 +17,7 @@ function wipe(){
 //                  ==== Stage variables ====
 
 //                  ==== mazeShit ====
+let wanderer = [0,0]
 let gameIsOn = false;
 let mazeSizeX = 1400;
 let mazeSizeY = 700;
@@ -128,7 +129,7 @@ function mazeEater()
     }
   if (mazeWalker[0] === mazeX-1 && mazeWalker[1] === mazeY-1) 
     {
-      mazeArray[mazeWalker[0]][mazeWalker[1]][2] = true
+      mazeArray[mazeWalker[0]][mazeWalker[1]][4] = true
     }
 }
 //                  ==== mazeShit ====

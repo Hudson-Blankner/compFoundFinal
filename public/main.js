@@ -75,12 +75,12 @@ function draw() {
     gunGame();
   } else if (players[myId].stage === 5) {
     if (gameIsOn) {
-      x = 20;
-      y = 20;
+      x = 0;
+      y = 0;
       for (let i = 0; i < mazeX; i++) {
         mazeArray[i] = [];
         for (let j = 0; j < mazeY; j++) {
-          mazeArray[i][j] = [false, false, false, false];
+          mazeArray[i][j] = [false, false, false, false, false];
         }
       }
       while (possPath.length != 0) {
@@ -138,7 +138,11 @@ function draw() {
     angleMode(DEGREES);
     translate(players[id].x, players[id].y);
     rotate(players[id].r);
-    square(-20, -20, 40);
+    if (players[myId].stage === 5){
+      rect(0,0,(mazeSizeX/mazeX), (mazeSizeY/mazeY))
+    } else{
+      square(-20, -20, 40);
+    }
     pop();
     if (players[id].stage > stage && ingame === false) {
       stage = players[id].stage;
