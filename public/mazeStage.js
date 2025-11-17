@@ -23,31 +23,51 @@ function mazeGame(){
   }
 }
 walls();
-if (keyIsDown(LEFT_ARROW)) {
-  if (wanderer[0] != 0 && mazeArray[wanderer[0]-1][wanderer[1]][0]){
+if (keyIsDown(LEFT_ARROW) || keyIsDown(65)) {
+  if (wanderer[0] != 0 && mazeArray[wanderer[0]-1][wanderer[1]][0] && mazeArray[wanderer[0]-1][wanderer[1]][1] === false){
     x -= (mazeSizeX/mazeX);
     mazeArray[wanderer[0]][wanderer[1]][1] = true
     wanderer[0] -= 1;
   }
+  if (wanderer[0] != 0 && mazeArray[wanderer[0]-1][wanderer[1]][1] && mazeArray[wanderer[0]-1][wanderer[1]][0]){
+    x -= (mazeSizeX/mazeX);
+    mazeArray[wanderer[0]][wanderer[1]][1] = false
+    wanderer[0] -= 1;
+  }
 }
-if (keyIsDown(RIGHT_ARROW)) {
-  if (wanderer[0] != mazeX-1 && mazeArray[wanderer[0]+1][wanderer[1]][0]){
+if (keyIsDown(RIGHT_ARROW) || keyIsDown(68)) {
+  if (wanderer[0] != mazeX-1 && mazeArray[wanderer[0]+1][wanderer[1]][0] && mazeArray[wanderer[0]+1][wanderer[1]][1] === false){
     x += (mazeSizeX/mazeX);
     mazeArray[wanderer[0]][wanderer[1]][1] = true
     wanderer[0] += 1;
   }
+  if (wanderer[0] != mazeX-1 && mazeArray[wanderer[0]+1][wanderer[1]][1] && mazeArray[wanderer[0]+1][wanderer[1]][0]){
+    x += (mazeSizeX/mazeX);
+    mazeArray[wanderer[0]][wanderer[1]][1] = false
+    wanderer[0] += 1;
+  }
 }
-if (keyIsDown(UP_ARROW)) {
-  if (wanderer[1] != 0 && mazeArray[wanderer[0]][wanderer[1]-1][0]){
+if (keyIsDown(UP_ARROW) || keyIsDown(87)) {
+  if (wanderer[1] != 0 && mazeArray[wanderer[0]][wanderer[1]-1][0] && mazeArray[wanderer[0]][wanderer[1]-1][1] === false){
     y -= (mazeSizeY/mazeY);
     mazeArray[wanderer[0]][wanderer[1]][1] = true
     wanderer[1] -= 1;
   }
+  if (wanderer[1] != 0 && mazeArray[wanderer[0]][wanderer[1]-1][1] && mazeArray[wanderer[0]][wanderer[1]-1][0]){
+    y -= (mazeSizeY/mazeY);
+    mazeArray[wanderer[0]][wanderer[1]][1] = false
+    wanderer[1] -= 1;
+  }
 }
-if (keyIsDown(DOWN_ARROW)) {
-  if (wanderer[1] != mazeY-1 && mazeArray[wanderer[0]][wanderer[1]+1][0]){
+if (keyIsDown(DOWN_ARROW) || keyIsDown(83)) {
+  if (wanderer[1] != mazeY-1 && mazeArray[wanderer[0]][wanderer[1]+1][0] && mazeArray[wanderer[0]][wanderer[1]+1][1] === false){
     y += (mazeSizeY/mazeY);
     mazeArray[wanderer[0]][wanderer[1]][1] = true
+    wanderer[1] += 1;
+  }
+  if (wanderer[1] != mazeY-1 && mazeArray[wanderer[0]][wanderer[1]+1][1] && mazeArray[wanderer[0]][wanderer[1]+1][0]){
+    y += (mazeSizeY/mazeY);
+    mazeArray[wanderer[0]][wanderer[1]][1] = false
     wanderer[1] += 1;
   }
 }
