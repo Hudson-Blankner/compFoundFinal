@@ -63,7 +63,7 @@ function gameChoice(){
         }
         if (charge >= 328) {
             gameIsOn = true;
-            ingame = true;
+            //ingame = true;
             stage = gamenum+1;
             players[myId].stage = stage;
         }

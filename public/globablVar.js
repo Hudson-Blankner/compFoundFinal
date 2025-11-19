@@ -36,6 +36,7 @@ function getRandomInteger(min, max)
 }
 function mazeEater()
 {
+  randomSeed(37);
   if (mazeArray[mazeWalker[0]][mazeWalker[1]][0] === false)
     {
       mazeArray[mazeWalker[0]][mazeWalker[1]][0] = true;

@@ -77,6 +77,10 @@ function draw() {
     if (gameIsOn) {
       x = 0;
       y = 0;
+      for (let id in players) {
+        ingame = players[id].ingame;
+      }
+      if (ingame != false){
       for (let i = 0; i < mazeX; i++) {
         mazeArray[i] = [];
         for (let j = 0; j < mazeY; j++) {
@@ -85,6 +89,7 @@ function draw() {
       }
       while (possPath.length != 0) {
         mazeEater();
+      }
       }
     }
     gameIsOn = false;
