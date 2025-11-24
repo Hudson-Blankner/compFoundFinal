@@ -3,7 +3,7 @@ let myId;
 let players = {};
 let x = 100,
   y = 100,
-  r = 0,
+  r = false,
   stage = 0,
   ingame = false;
 // let gameChoiceMusic;
@@ -78,9 +78,11 @@ function draw() {
       x = 0;
       y = 0;
       for (let id in players) {
-        ingame = players[id].ingame;
+        if (players[id].r != false){
+          r = players[id].r;
+        }
       }
-      if (ingame != false){
+      if (r === false){
       for (let i = 0; i < mazeX; i++) {
         mazeArray[i] = [];
         for (let j = 0; j < mazeY; j++) {
@@ -90,7 +92,9 @@ function draw() {
       while (possPath.length != 0) {
         mazeEater();
       }
+      r = mazeArray;
       }
+      mazeArray = r;
     }
     gameIsOn = false;
     mazeGame();
@@ -142,7 +146,7 @@ function draw() {
     push();
     angleMode(DEGREES);
     translate(players[id].x, players[id].y);
-    rotate(players[id].r);
+    //rotate(players[id].r);
     if (players[myId].stage === 5){
       rect(0,0,(mazeSizeX/mazeX), (mazeSizeY/mazeY))
     } else{

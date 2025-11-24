@@ -18,7 +18,7 @@ function wipe(){
 
 //                  ==== mazeShit ====
 let wanderer = [0,0]
-let gameIsOn = false;
+let gameIsOn = true;
 let mazeSizeX = 1400;
 let mazeSizeY = 700;
 let mazeX = 65;
