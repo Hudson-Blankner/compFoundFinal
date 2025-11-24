@@ -34,19 +34,19 @@ function titleStage(){
         }
     }
     if (canLeft) {
-        if (keyIsDown(LEFT_ARROW)) x -= 5;
+        if (keyIsDown(LEFT_ARROW) || keyIsDown(65)) x -= 5;
     }
     if (canRight) {
-        if (keyIsDown(RIGHT_ARROW)) {
+        if (keyIsDown(RIGHT_ARROW) || keyIsDown(68)) {
             x += 5;
             //r += 5;
         }
     }
     if (canUp) {
-        if (keyIsDown(UP_ARROW)) y -= 5;
+        if (keyIsDown(UP_ARROW) || keyIsDown(87)) y -= 5;
     }
     if (canDown) {
-        if (keyIsDown(DOWN_ARROW)) y += 5; 
+        if (keyIsDown(DOWN_ARROW) || keyIsDown(83)) y += 5; 
     }
     fill(0)
     text("Player Count: "+ playerCount, canvMid[0]-650, canvMid[1]-330);

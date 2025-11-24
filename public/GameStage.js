@@ -1,10 +1,10 @@
 function gameChoice(){
     background(220);
     //userStartAudio();
-    if (keyIsDown(LEFT_ARROW)) x -= 5;
-    if (keyIsDown(RIGHT_ARROW)) x += 5;
-    if (keyIsDown(UP_ARROW)) y -= 5;
-    if (keyIsDown(DOWN_ARROW)) y += 5; 
+    if (keyIsDown(LEFT_ARROW) || keyIsDown(65)) x -= 5;
+    if (keyIsDown(RIGHT_ARROW) || keyIsDown(68)) x += 5;
+    if (keyIsDown(UP_ARROW) || keyIsDown(87)) y -= 5;
+    if (keyIsDown(DOWN_ARROW) || keyIsDown(83)) y += 5; 
     
     fill(210);
     // rect(platGameBox.x,platGameBox.y,platGameBox.w,platGameBox.h,10)
