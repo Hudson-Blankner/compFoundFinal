@@ -1,5 +1,4 @@
 function mazeGame(){
-    r = mazeArray;
     function walls()
 {
   for (let sx = 0; sx < mazeX; sx += 1) 
