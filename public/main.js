@@ -5,7 +5,7 @@ let x = 100,
   y = 100,
   r = false,
   stage = 0,
-  ingame = false;
+  wingame = false;
 // let gameChoiceMusic;
 
 function setup() {
@@ -33,7 +33,7 @@ function setup() {
       players[data.id].y = data.y;
       players[data.id].r = data.r;
       players[data.id].stage = data.stage;
-      //players[data.id].color = data.color;
+      players[data.id].wingame = data.wingame;
     }
   });
 
@@ -153,7 +153,7 @@ function draw() {
       square(-20, -20, 40);
     }
     pop();
-    if (players[id].stage > stage && ingame === false) {
+    if (players[id].stage > stage && wingame === false) {
       stage = players[id].stage;
     }
     //if (players[id].stage < stage && ingame === true) {

@@ -17,6 +17,7 @@ function wipe(){
 //                  ==== Stage variables ====
 
 //                  ==== mazeShit ====
+let gameOver = false;
 let wanderer = [0,0]
 let gameIsOn = true;
 let mazeSizeX = 1400;

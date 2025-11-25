@@ -28,7 +28,7 @@ io.on("connection", (socket) => {
   else if (joinCount > 3) joinCount -= 3;
 
   // Add new player
-  players[socket.id] = { x: 100, y: 100, r: 0, stage: 0, color };
+  players[socket.id] = { x: 100, y: 100, r: 0, stage: 0, wingame:false, color };
 
   // Send current players to new player
   socket.emit("currentPlayers", players);
@@ -40,6 +40,7 @@ io.on("connection", (socket) => {
     y: 100,
     r: 0,
     stage: 0,
+    wingame: false,
     color,
   });
 
@@ -50,12 +51,14 @@ io.on("connection", (socket) => {
       players[socket.id].y = data.y;
       players[socket.id].r = data.r;
       players[socket.id].stage = data.stage;
+      players[socket.id].wingame = data.wingame;
       io.emit("playerMoved", {
         id: socket.id,
         x: data.x,
         y: data.y,
         r: data.r,
         stage: data.stage,
+        wingame: data.wingame
       });
     }
   });

@@ -1,6 +1,5 @@
 function mazeGame(){
     r = mazeArray;
-    background(0)
     function walls()
 {
   for (let sx = 0; sx < mazeX; sx += 1) 
@@ -11,19 +10,36 @@ function mazeGame(){
         {
           if (mazeArray[sx][sy][1] === false && mazeArray[sx][sy][2] === false && mazeArray[sx][sy][3] === false)
             {
+            if (mazeArray[sx][sy][4] === true){
+              fill("red");
+              rect(sx*((mazeSizeX/mazeX)), sy*((mazeSizeY/mazeY)), (mazeSizeX/mazeX), (mazeSizeY/mazeY))
+            } else {
             noStroke()
             fill(255)
             rect(sx*((mazeSizeX/mazeX)), sy*((mazeSizeY/mazeY)), (mazeSizeX/mazeX), (mazeSizeY/mazeY))
-            } else 
+            }
+          } else 
               {
                 fill(players[myId].color);
                 rect(sx*((mazeSizeX/mazeX)), sy*((mazeSizeY/mazeY)), (mazeSizeX/mazeX), (mazeSizeY/mazeY))
-              }
+            }
           }
       }
   }
 }
-walls();
+for (let id in players) {
+  if (players[id].r === true){
+    gameOver = true;
+  }
+}
+if (gameOver){
+  background(255)
+  fill(0);
+  textSize(100);
+  text("YOU WIN",700,350);
+} else {
+  background(0)
+  walls();
 if (keyIsDown(LEFT_ARROW) || keyIsDown(65)) {
   if (wanderer[0] != 0 && mazeArray[wanderer[0]-1][wanderer[1]][0] && mazeArray[wanderer[0]-1][wanderer[1]][1] === false){
     x -= (mazeSizeX/mazeX);
@@ -71,5 +87,10 @@ if (keyIsDown(DOWN_ARROW) || keyIsDown(83)) {
     mazeArray[wanderer[0]][wanderer[1]][1] = false
     wanderer[1] += 1;
   }
+}
+if (wanderer[0] === mazeX - 1 && wanderer[1] === mazeY - 1){
+  r = true;
+  gameOver = true;
+}
 }
 }
