@@ -1,5 +1,4 @@
 function mazeGame(){
-    let player2maze;
     r = mazeArray;
     background(0)
     function walls()
@@ -73,13 +72,4 @@ if (keyIsDown(DOWN_ARROW) || keyIsDown(83)) {
     wanderer[1] += 1;
   }
 }
-// if (players[myId].color === "blue") {
-//   mazeArray[wanderer[0]][wanderer[1]][1] = true
-// }
-// if (players[myId].color === "purple") {
-//   mazeArray[wanderer[0]][wanderer[1]][2] = true
-// }
-// if (players[myId].color === "orange") {
-//   mazeArray[wanderer[0]][wanderer[1]][3] = true
-// }
 }
