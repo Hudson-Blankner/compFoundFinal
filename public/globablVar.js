@@ -16,6 +16,10 @@ function wipe(){
 
 //                  ==== Stage variables ====
 
+//                  ==== platShit ====
+let playerDrop = 0;
+//                  ==== platShit ====
+
 //                  ==== mazeShit ====
 let allGame;
 let allDone;
