@@ -26,9 +26,12 @@ function mazeGame(){
       }
   }
 }
+allDone = 0;
 for (let id in players) {
+  allDone += 1;
   if (players[id].r === true){
     gameOver = true;
+    r = true;
   }
 }
 if (gameOver){
@@ -36,6 +39,13 @@ if (gameOver){
   fill(0);
   textSize(100);
   text("YOU WIN",700,350);
+  if (allDone === playerCount){
+    if (keyIsDown(32)){
+      titleSetup = true;
+      stage = 1;
+      r = false;
+    }
+  }
 } else {
   background(0)
   walls();

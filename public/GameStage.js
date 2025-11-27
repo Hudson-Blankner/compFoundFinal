@@ -1,4 +1,5 @@
 function gameChoice(){
+    textSize(80)
     background(220);
     //userStartAudio();
     if (keyIsDown(LEFT_ARROW) || keyIsDown(65)) x -= 5;
@@ -21,7 +22,7 @@ function gameChoice(){
         fill(210)
         rect(box.x,box.y,box.w,box.h,10)
         fill(100)
-        text(gamename, box.x+100, box.y+100)
+        text(gamename, box.x+120, box.y+100)
         if(charge > 0) {
             fill(255)
             rect(box.x+5,box.y+5,charge,box.h-10, 10)

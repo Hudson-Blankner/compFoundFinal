@@ -121,6 +121,7 @@ function draw() {
   let bluePlayerOn = 0;
   let purplePlayerOn = 0;
   let orangePlayerOn = 0;
+  allGame = 0;
   for (let id in players) {
     if (players[id].color === "blue") {
       bluePlayerOn = 1;
@@ -153,12 +154,21 @@ function draw() {
       square(-20, -20, 40);
     }
     pop();
-    if (players[id].stage > stage && wingame === false) {
+    if (players[id].stage > stage && gameOver === false) {
       stage = players[id].stage;
     }
-    //if (players[id].stage < stage && ingame === true) {
-    //  stage = players[id].stage;
-    //}
+    if (players[id].stage < stage && gameOver === true) {
+      titleSetup = true;
+      r = false;
+      stage = players[id].stage;
+    }
+    if (players[id].stage === 1){
+      allGame += 1;
+    }
+    if (allGame === playerCount){
+      gameOver = false;
+      r = false;
+    }
   }
 }
 //ngrok http 3000
