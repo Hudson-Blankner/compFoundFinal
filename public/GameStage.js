@@ -1,11 +1,13 @@
 function gameChoice(){
+    pDirection = 0;
+    stroke(0)
     textSize(80)
     background(220);
     //userStartAudio();
-    if (keyIsDown(LEFT_ARROW) || keyIsDown(65)) x -= 5;
-    if (keyIsDown(RIGHT_ARROW) || keyIsDown(68)) x += 5;
-    if (keyIsDown(UP_ARROW) || keyIsDown(87)) y -= 5;
-    if (keyIsDown(DOWN_ARROW) || keyIsDown(83)) y += 5; 
+    if (keyIsDown(LEFT_ARROW) || keyIsDown(65)) x -= 5, pDirection = 4;
+    if (keyIsDown(RIGHT_ARROW) || keyIsDown(68)) x += 5, pDirection = 2;
+    if (keyIsDown(UP_ARROW) || keyIsDown(87)) y -= 5, pDirection = 1;
+    if (keyIsDown(DOWN_ARROW) || keyIsDown(83)) y += 5, pDirection = 3; 
     
     fill(210);
     // rect(platGameBox.x,platGameBox.y,platGameBox.w,platGameBox.h,10)

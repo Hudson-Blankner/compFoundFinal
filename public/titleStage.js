@@ -1,4 +1,5 @@
 function titleStage(){
+    pDirection = 0;
     let canLeft = true;
     let canRight = true;
     let canUp = true;
@@ -34,19 +35,20 @@ function titleStage(){
         }
     }
     if (canLeft) {
-        if (keyIsDown(LEFT_ARROW) || keyIsDown(65)) x -= 5;
+        if (keyIsDown(LEFT_ARROW) || keyIsDown(65)) x -= 5, pDirection = 4;
     }
     if (canRight) {
         if (keyIsDown(RIGHT_ARROW) || keyIsDown(68)) {
             x += 5;
+            pDirection = 2
             //r += 5;
         }
     }
     if (canUp) {
-        if (keyIsDown(UP_ARROW) || keyIsDown(87)) y -= 5;
+        if (keyIsDown(UP_ARROW) || keyIsDown(87)) y -= 5, pDirection = 1;
     }
     if (canDown) {
-        if (keyIsDown(DOWN_ARROW) || keyIsDown(83)) y += 5; 
+        if (keyIsDown(DOWN_ARROW) || keyIsDown(83)) y += 5, pDirection = 3; 
     }
     fill(0)
     text("Player Count: "+ playerCount, canvMid[0]-650, canvMid[1]-330);

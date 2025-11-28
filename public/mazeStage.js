@@ -36,9 +36,14 @@ for (let id in players) {
 }
 if (gameOver){
   background(255)
-  fill(0);
   textSize(100);
-  text("YOU WIN",700,350);
+  for (let id in players) {
+    if (players[id].x >= 1350 && players[id].y >= 650) {
+      mazeWinner = players[id].color
+    }
+  }
+  fill(mazeWinner);
+  text(mazeWinner.toUpperCase() + " WINS!",700,350);
   if (allDone === playerCount){
     if (keyIsDown(32)){
       titleSetup = true;
@@ -97,7 +102,7 @@ if (keyIsDown(DOWN_ARROW) || keyIsDown(83)) {
     wanderer[1] += 1;
   }
 }
-if (wanderer[0] === mazeX - 1 && wanderer[1] === mazeY - 1){
+if ((wanderer[0] === mazeX - 1 && wanderer[1] === mazeY - 1) || keyIsDown(16)){
   r = true;
   gameOver = true;
 }

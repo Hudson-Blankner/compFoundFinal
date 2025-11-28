@@ -5,7 +5,8 @@ let x = 100,
   y = 100,
   r = false,
   stage = 0,
-  wingame = false;
+  wingame = false,
+  pDirection = 0;
 // let gameChoiceMusic;
 
 function setup() {
@@ -75,6 +76,7 @@ function draw() {
     gunGame();
   } else if (players[myId].stage === 5) {
     if (gameIsOn) {
+      let mazeWinner = "red";
       x = 0;
       y = 0;
       for (let id in players) {
@@ -151,7 +153,40 @@ function draw() {
     if (players[myId].stage === 5){
       rect(0,0,(mazeSizeX/mazeX), (mazeSizeY/mazeY))
     } else{
+      if (sprinting){
+        stroke(255)
+      } else {
+        stroke(0)
+      }
+      strokeWeight(3)
       square(-20, -20, 40);
+      stroke(0)
+      fill(0)
+      if(stage === 0 || stage === 1 || stage === 2){
+      if (pDirection === 0){
+        square(-15, -2, 5)
+        square(10,-2, 5)
+        rect(-3,4, 6, 0.5)
+      }
+      if (pDirection === 1){
+        square(-15, -12, 5)
+        square(10,-12, 5)
+        rect(-3,-8, 6, 0.5)
+      }
+      if (pDirection === 3){
+        square(-15, 8, 5)
+        square(10,8, 5)
+        rect(-3,12, 6, 0.5)
+      }
+      if (pDirection === 4){
+        square(-8, -2, 5)
+        rect(-20,4, 6, 0.5)
+      }
+      if (pDirection === 2){
+        square(3, -2, 5)
+        rect(14,4, 6, 0.5)
+      }
+      }
     }
     pop();
     if (players[id].stage > stage && gameOver === false) {
