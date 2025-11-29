@@ -20,6 +20,8 @@ function wipe(){
 let playerDrop = 0;
 let jumping = false;
 let canJump = true;
+let canJumpL = true;
+let canJumpR = true;
 let canDoubleJump = true;
 let sprinting = false;
 //                  ==== platShit ====

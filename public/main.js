@@ -164,9 +164,9 @@ function draw() {
       fill(0)
       if(stage === 0 || stage === 1 || stage === 2){
       if (pDirection === 0){
-        square(-15, -2, 5)
-        square(10,-2, 5)
-        rect(-3,4, 6, 0.5)
+        square(-15, -2-playerDrop, 5)
+        square(10,-2-playerDrop, 5)
+        rect(-3,4-playerDrop, 6, 0.5)
       }
       if (pDirection === 1){
         square(-15, -12, 5)
@@ -179,12 +179,12 @@ function draw() {
         rect(-3,12, 6, 0.5)
       }
       if (pDirection === 4){
-        square(-8, -2, 5)
-        rect(-20,4, 6, 0.5)
+        square(-8, -2-playerDrop, 5)
+        rect(-20,4-playerDrop, 6, 0.5)
       }
       if (pDirection === 2){
-        square(3, -2, 5)
-        rect(14,4, 6, 0.5)
+        square(3, -2-playerDrop, 5)
+        rect(14,4-playerDrop, 6, 0.5)
       }
       }
     }
