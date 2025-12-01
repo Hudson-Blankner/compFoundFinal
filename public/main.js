@@ -7,14 +7,14 @@ let x = 100,
   stage = 0,
   wingame = false,
   pDirection = 0;
-// let gameChoiceMusic;
+let gameChoiceMusic;
+function preload() {
+    gameChoiceMusic = loadSound('/music/GameChoiceSound.mp3');
+  }
 
 function setup() {
   createCanvas(canvW, canvH);
   socket = io();
-  // function preload() {
-  //   gameChoiceMusic = loadSound('public/music/GameChoiceMusic.mp3');
-  // }
   socket.on("connect", () => {
     myId = socket.id;
     x = playerTwoStartX;
@@ -63,10 +63,10 @@ function draw() {
         x = playerThreeStartX;
         y = playerThreeStartY + 250;
       }
+      gameChoiceMusic.loop();
+      gameChoiceMusic.setVolume(0.5);
     }
     titleSetup = false;
-    // gameChoiceMusic.loop();
-    // gameChoiceMusic.setVolume(0.5);
     gameChoice();
   } else if (players[myId].stage === 2) {
     platformer();
