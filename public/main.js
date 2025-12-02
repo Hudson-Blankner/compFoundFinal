@@ -6,7 +6,8 @@ let x = 100,
   r = false,
   stage = 0,
   wingame = false,
-  pDirection = 0;
+  pDirection = 0,
+  musicOn = true;
 let gameChoiceMusic;
 function preload() {
     gameChoiceMusic = loadSound('/music/GameChoiceSound.mp3');
@@ -53,6 +54,9 @@ function draw() {
     titleStage();
   } else if (players[myId].stage === 1) {
     if (titleSetup) {
+      slider = createSlider(0, 100, 50);
+      slider.position(367, 250);
+      slider.size(200);
       if (players[myId].color === "blue") {
         x = playerOneStartX;
         y = playerOneStartY + 250;
@@ -63,11 +67,15 @@ function draw() {
         x = playerThreeStartX;
         y = playerThreeStartY + 250;
       }
-      gameChoiceMusic.loop();
-      gameChoiceMusic.setVolume(0.5);
+      if (musicOn){
+        gameChoiceMusic.loop();
+        musicOn = false;
+      }
     }
     titleSetup = false;
     gameChoice();
+    let volume = slider.value();
+    gameChoiceMusic.setVolume(volume/400);
   } else if (players[myId].stage === 2) {
     platformer();
   } else if (players[myId].stage === 3) {

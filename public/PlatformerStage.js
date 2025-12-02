@@ -36,9 +36,12 @@ function platformer(){
                 canDown = true
             }
         } else {
-            if (players[myId].y >= 680 || (y >= 230 && y <= 240 && x <= 220 && x >= 140)){
+            if (players[myId].y >= 680 || (y >= 230 && y <= 245 && x < 220 && x > 140)){
                 jumping = false;
                 canDown = false;
+                if (y > 230 && y <= 245 && x < 220 && x > 140){
+                    y = 230
+                }
             }
             if (players[myId].x >= 1380 || (players[myId].y >= 230 && players[myId].y <= 670 && players[myId].x >= 140 && players[myId].x <= 160)){
                 canRight = false;
