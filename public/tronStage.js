@@ -1,7 +1,11 @@
 function tronGame(){
   if (gameIsOn){
   r = false;
-  background('black');
+  background('red');
+  push();
+  fill('black');
+  rect(10, 10, 1380, 680);
+  pop();
   frameRate(90);
   trondirection = 'right'
   trongameOver = false
@@ -54,6 +58,28 @@ function tronGame(){
      y = y + 2
    }
   }
+
+    if (keyIsDown(LEFT_ARROW) === true) {
+    if (trondirection !== 'right') {
+      trondirection = 'left'
+    }
+   }
+   if (keyIsDown(UP_ARROW) === true) {
+     if (trondirection !== 'down') {
+      trondirection = 'up'
+     }
+   }
+   if (keyIsDown(RIGHT_ARROW) === true) {
+     if (trondirection !== 'left') {
+      trondirection = 'right'
+     }
+   }
+   if (keyIsDown(DOWN_ARROW) === true) {
+     if (trondirection !== 'up') {
+      trondirection = 'down'
+     }
+   }
+
    function notBlack(x,y) {
      var a = get(x, y);
      if (a[0] !== 0) return true;
