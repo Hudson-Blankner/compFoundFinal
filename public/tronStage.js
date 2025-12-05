@@ -7,11 +7,14 @@ function tronGame(){
   trondirection = 'right'
   trongameOver = false
   }
+  gameIsOn = false;
   if (trongameOver  == true) {
     return
   } else {
     player();
+    console.log("play")
   }
+
   function player(){
     if (notBlack(x,y) === true) {
       fill(225)
