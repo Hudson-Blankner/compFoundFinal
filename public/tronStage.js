@@ -2,10 +2,19 @@ function tronGame(){
   if (gameIsOn){
   background('black');
   frameRate(90);
-  x = 20
-  y = 200
   trondirection = 'right'
   trongameOver = false
+
+  if (players[myId].color === "blue") {
+        x = 20
+        y = 175
+      } else if (players[myId].color === "purple") {
+        x = 20
+        y = 350
+      } else if (players[myId].color === "orange") {
+        x = 20
+        y = 525
+      }
   }
   gameIsOn = false;
   if (trongameOver  == true) {
