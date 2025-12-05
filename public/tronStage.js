@@ -3,11 +3,8 @@ function tronGame(){
   r = false;
   background('black');
   frameRate(90);
-  x = 20
-  y = 200
   trondirection = 'right'
   trongameOver = false
-  let allDoneAgain = 0
   }
   gameIsOn = false;
   if (trongameOver  === true) {
