@@ -1,28 +1,19 @@
 function tronGame(){
-  let x = 20
-  let y = 200
-  let direction = 'right'
-
-  let gameOver = false
-
-  function setup() {
-    createCanvas(innerWidth, innerHeight);
-    background('black');
-    frameRate(90);
+  if (gameIsOn){
+  createCanvas(innerWidth, innerHeight);
+  background('black');
+  frameRate(90);
+  x = 20
+  y = 200
+  trondirection = 'right'
+  let trongameOver = false
   }
-
-  function draw() {
-  if (gameOver == true) {
-    return
-   }
-  player()
-  }
-  
+  gameIsOn = false;
   function player(){
     if (notBlack(x,y) === true) {
       fill(225)
       text("Game Over\n You fuckin such :/", 200, 180)
-      gameOver = true
+      trongameOver = true
       fill(255,0,0)
       ellipse(x,y,20,20)
     }
@@ -31,39 +22,17 @@ function tronGame(){
     strokeWeight(3);
     point(x, y);
     pop();
-    if (direction === 'left'){
+    if (trondirection === 'left'){
        x = x - 2
    }
-   if (direction === 'up') {
+   if (trondirection === 'up') {
       y = y - 2
    }
-   if (direction === 'right') {
+   if (trondirection === 'right') {
      x = x + 2
    }
-   if (direction === 'down') {
+   if (trondirection === 'down') {
      y = y + 2
-   }
-  }
-  function keyPressed(){
-   if (keyIsDown(LEFT_ARROW) === true) {
-     if (direction !== 'right') {
-      direction = 'left'
-     }
-   }
-   if (keyIsDown(UP_ARROW) === true) {
-     if (direction !== 'down') {
-      direction = 'up'
-     }
-   }
-   if (keyIsDown(RIGHT_ARROW) === true) {
-     if (direction !== 'left') {
-      direction = 'right'
-     }
-   }
-   if (keyIsDown(DOWN_ARROW) === true) {
-     if (direction !== 'up') {
-      direction = 'down'
-     }
    }
   }
    function notBlack(x,y) {
@@ -73,4 +42,9 @@ function tronGame(){
      else if (a[2] !== 0) return true;
      return false;
    }
+  if (trongameOver == true) {
+    return
+   }
+  player()
+}
   

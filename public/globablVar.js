@@ -25,7 +25,30 @@ let canJumpR = true;
 let canDoubleJump = true;
 let sprinting = false;
 //                  ==== platShit ====
-
+//                  ==== tronShit ====
+function keyPressed(){
+   if (keyIsDown(LEFT_ARROW) === true) {
+     if (trondirection !== 'right') {
+      trondirection = 'left'
+     }
+   }
+   if (keyIsDown(UP_ARROW) === true) {
+     if (trondirection !== 'down') {
+      trondirection = 'up'
+     }
+   }
+   if (keyIsDown(RIGHT_ARROW) === true) {
+     if (trondirection !== 'left') {
+      trondirection = 'right'
+     }
+   }
+   if (keyIsDown(DOWN_ARROW) === true) {
+     if (trondirection !== 'up') {
+      trondirection = 'down'
+     }
+   }
+  }
+//                  ==== tronShit ====
 //                  ==== mazeShit ====
 let allGame;
 let allDone;
