@@ -1,22 +1,38 @@
 function tronGame(){
   if (gameIsOn){
+  r = false;
   background('black');
   frameRate(90);
   x = 20
   y = 200
   trondirection = 'right'
   trongameOver = false
+  let allDoneAgain = 0
   }
   gameIsOn = false;
-  if (trongameOver  == true) {
-    return
+  if (trongameOver  === true) {
+    r = trongameOver
+    fill(225)
+    text("Game Over\n You heckin such :/", 700, 200)
+    allDoneAgain = 0
+    for (let id in players) {
+      if (players[id].r === true){
+        allDoneAgain += 1;
+      }
+    }
+    if (allDoneAgain >= playerCount){
+      if (keyIsDown(32)){
+      titleSetup = true;
+      trongameOver = false;
+      stage = 1;
+      }
+    }
   } else {
+    r = trongameOver
     player();
   }
   function player(){
     if (notBlack(x,y) === true) {
-      fill(225)
-      text("Game Over\n You fuckin such :/", 200, 180)
       trongameOver = true
       fill(255,0,0)
       ellipse(x,y,20,20)
@@ -48,5 +64,22 @@ function tronGame(){
      else if (a[2] !== 0) return true;
      return false;
    }
+  allDone = 0;
+  for (let id in players) {
+    if (players[id].r === true){
+      allDone += 1;
+    }
+  }
+  for (let id in players) {
+    if (allDone >= 1){
+      if (players[id].r === false){
+        mazeWinner = player[id].color
+      }
+      if (trongameOver === false){
+        score += 1
+        trongameOver = true;
+      }
+    }
+  }
 }
   
