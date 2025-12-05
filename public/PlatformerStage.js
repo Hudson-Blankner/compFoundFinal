@@ -16,8 +16,8 @@ function platformer(){
     rect(1160, 40, 40, 460);
     rect(160, 610, 1240, 40);
     rect(0, 40, 1200, 40);
-    //fill('red')
-    //square(320, 240, 40)
+    fill('yellow');
+    square(0, 0, 40);
 
     for (let id in players) {
         if (id != myId) {
@@ -49,23 +49,34 @@ function platformer(){
         } else {
             //down
             if (players[myId].y >= 680 || (y >= 130 && y <= 145 && x < 220 && x > 140) ||
-            (players[myId].y >= 600 && players[myId].y <= 615 && players[myId].x >= 140 && players[myId].x <= 1400)){
+            (players[myId].y >= 590 && players[myId].y <= 615 && players[myId].x >= 140 && players[myId].x <= 1400)){
                 jumping = false;
                 canDown = false;
-                if ((y > 130 && y <= 145 && x < 220 && x > 140) ||
-            (players[myId].y > 600 && players[myId].y < 615 && players[myId].x >= 140 && players[myId].x <= 1400)){
+                if ((y > 130 && y <= 145 && x < 220 && x > 140)){
                     y = 130
+                }
+                if (players[myId].y > 590 && players[myId].y < 615 && players[myId].x >= 140 && players[myId].x <= 1400){
+                    y = 590
                 }
             }
             //right
             if (players[myId].x >= 1380 || 
             (players[myId].y >= 130 && players[myId].y <= 670 && players[myId].x >= 140 && players[myId].x <= 160) ||
-            (players[myId].y > 40 && players[myId].y <= 440 && players[myId].x >= 340 && players[myId].x <= 360)){
+            (players[myId].y > 40 && players[myId].y <= 520 && players[myId].x >= 340 && players[myId].x <= 360) ||
+            (players[myId].y > 40 && players[myId].y <= 520 && players[myId].x >= 740 && players[myId].x <= 760) ||
+            (players[myId].y > 40 && players[myId].y <= 520 && players[myId].x >= 1140 && players[myId].x <= 1160) ||
+            (players[myId].y >= 130 && players[myId].y <= 670 && players[myId].x >= 540 && players[myId].x <= 560) ||
+            (players[myId].y >= 130 && players[myId].y <= 670 && players[myId].x >= 940 && players[myId].x <= 960)){
                 canRight = false;
             }
             //left
             if (players[myId].x <= 20 ||
-                (players[myId].y >= 130 && players[myId].y <= 670 && players[myId].x >= 200 && players[myId].x <= 220)
+                (players[myId].y >= 130 && players[myId].y <= 670 && players[myId].x >= 200 && players[myId].x <= 220) ||
+                (players[myId].y >= 130 && players[myId].y <= 670 && players[myId].x >= 600 && players[myId].x <= 620) ||
+                (players[myId].y >= 130 && players[myId].y <= 670 && players[myId].x >= 1000 && players[myId].x <= 1020) ||
+                (players[myId].y > 40 && players[myId].y <= 520 && players[myId].x >= 400 && players[myId].x <= 420) ||
+                (players[myId].y > 40 && players[myId].y <= 520 && players[myId].x >= 800 && players[myId].x <= 820) ||
+                (players[myId].y > 40 && players[myId].y <= 520 && players[myId].x >= 1200 && players[myId].x <= 1220)
             ){
                 canLeft = false;
             }

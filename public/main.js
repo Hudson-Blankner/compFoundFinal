@@ -179,7 +179,9 @@ function draw() {
     angleMode(DEGREES);
     translate(players[id].x, players[id].y);
     //rotate(players[id].r);
-    if (players[myId].stage === 5){
+    if (players[myId].stage === 8){
+
+    } else if (players[myId].stage === 5){
       rect(0,0,(mazeSizeX/mazeX), (mazeSizeY/mazeY))
     } else{
       if (sprinting){
