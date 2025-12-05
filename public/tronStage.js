@@ -22,7 +22,6 @@ function tronGame(){
   } else {
     player();
   }
-
   function player(){
     if (notBlack(x,y) === true) {
       fill(225)
@@ -32,9 +31,11 @@ function tronGame(){
       ellipse(x,y,20,20)
     }
     push();
-    stroke('orange');
-    strokeWeight(3);
-    point(x, y);
+    for (let id in players) {
+      stroke(players[id].color);
+      strokeWeight(3);
+      point(players[id].x, players[id].y);
+    }
     pop();
     if (trondirection === 'left'){
        x = x - 2
