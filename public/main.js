@@ -45,7 +45,23 @@ function setup() {
     delete players[id];
   });
 }
+function mouseClicked(){
+  if (menuOn){
+    if (mouseX >= 535 && mouseX <= 580 && mouseY >= 230 && mouseY <= 270){
+      if (volume){
+        volume = false;
+      } else{
+        volume = true;
+      }
+    }
+  }
+}
 function draw() {
+  if (volume){
+    gameChoiceMusic.setVolume(0.4); 
+  } else{
+    gameChoiceMusic.setVolume(0.0);
+  }
   //background(220)
   // Player Move (change to dependent on stagechoice)
   if (players[myId] == null) {
@@ -73,7 +89,6 @@ function draw() {
     }
     titleSetup = false;
     gameChoice();
-    gameChoiceMusic.setVolume(0.4);
   } else if (players[myId].stage === 2) {
     platformer();
   } else if (players[myId].stage === 3) {
@@ -118,41 +133,6 @@ function draw() {
     huntGame();
   } else if (players[myId].stage === 11) {
     tankGame();
-  }
-  if (menuOn) {
-    strokeWeight(0);
-    fill(0);
-    rect(495, 195, 410, 310);
-    fill(150);
-    rect(500, 200, 400, 300);
-    if (mouseX >= 535 && mouseX <= 580 && mouseY >= 230 && mouseY <= 270){
-      fill(50)
-      rect(532, 227, 51, 46)
-      fill(150)
-      rect(534, 229, 47, 42)
-    }
-    if (volume){
-      fill(50);
-      circle(550, 250, 30);
-      triangle(550,250,580,230,580,270);
-    } else{
-      fill(50);
-      circle(550, 250, 30);
-      line(560,235, 580,265);
-    }
-    function mouseClicked(){
-      if (mouseX >= 535 && mouseX <= 580 && mouseY >= 230 && mouseY <= 270){
-        if (volume){
-          volume = false;
-        } else{
-          volume = true;
-        }
-      }
-    }
-    // slider = createSlider(0, 100, 100*volume);
-    // slider.position(510, 210);
-    // slider.size(200);
-    // volume = slider.value();
   }
   strokeWeight(1);
   console.log(menuOn)
@@ -246,6 +226,32 @@ function draw() {
       gameOver = false;
       r = false;
     }
+  }
+  if (menuOn) {
+    strokeWeight(0);
+    fill(0);
+    rect(495, 195, 410, 310);
+    fill(150);
+    rect(500, 200, 400, 300);
+    if (mouseX >= 535 && mouseX <= 580 && mouseY >= 230 && mouseY <= 270){
+      fill(50)
+      rect(532, 227, 51, 46)
+      fill(150)
+      rect(534, 229, 47, 42)
+    }
+    if (volume){
+      fill(50);
+      circle(550, 250, 30);
+      triangle(550,250,580,230,580,270);
+    } else{
+      fill(50);
+      circle(550, 250, 30);
+      line(560,235, 580,265);
+    }
+    // slider = createSlider(0, 100, 100*volume);
+    // slider.position(510, 210);
+    // slider.size(200);
+    // volume = slider.value();
   }
 }
 function keyTyped() {
