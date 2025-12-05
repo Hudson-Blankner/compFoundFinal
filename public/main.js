@@ -94,6 +94,7 @@ function draw() {
     gameChoice();
   } else if (players[myId].stage === 2) {
     if (gameIsOn){
+      gameOver = false;
       x = 1350;
       y = 680;
     }
@@ -105,6 +106,7 @@ function draw() {
     gunGame();
   } else if (players[myId].stage === 5) {
     if (gameIsOn) {
+      gameOver = false;
       let mazeWinner = "red";
       x = 0;
       y = 0;
