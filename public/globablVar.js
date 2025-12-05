@@ -3,6 +3,8 @@ let canvW = 1400
 let canvH = 700
 const canvMid = [canvW/2, canvH/2]
 let playerCount = 0
+let gameIsOn = true;
+console.log(document.querySelector("canvas"));
 //                  ==== Global variables ====
 //                  ==== Wipe Function ====
 // this will be used to save memory by wipping lists between stages. Ideally it will be called ONCE-
@@ -26,6 +28,8 @@ let canDoubleJump = true;
 let sprinting = false;
 //                  ==== platShit ====
 //                  ==== tronShit ====
+let trongameOver;
+let trondirection;
 function keyPressed(){
    if (keyIsDown(LEFT_ARROW) === true) {
      if (trondirection !== 'right') {
@@ -54,7 +58,6 @@ let allGame;
 let allDone;
 let gameOver = false;
 let wanderer = [0,0]
-let gameIsOn = true;
 let mazeSizeX = 1400;
 let mazeSizeY = 700;
 let mazeX = 65;
