@@ -2,14 +2,14 @@ function gameChoice(){
     pDirection = 0;
     stroke(0)
     textSize(80)
-    background(220);
+    background(75, 148, 46);
     //userStartAudio();
     if (keyIsDown(LEFT_ARROW) || keyIsDown(65)) x -= 5, pDirection = 4;
     if (keyIsDown(RIGHT_ARROW) || keyIsDown(68)) x += 5, pDirection = 2;
     if (keyIsDown(UP_ARROW) || keyIsDown(87)) y -= 5, pDirection = 1;
     if (keyIsDown(DOWN_ARROW) || keyIsDown(83)) y += 5, pDirection = 3; 
     
-    fill(210);
+    fill(15, 84, 8);
     // rect(platGameBox.x,platGameBox.y,platGameBox.w,platGameBox.h,10)
     // rect(shipGameBox.x,shipGameBox.y,shipGameBox.w,shipGameBox.h,10)
     // rect(gunGameBox.x,gunGameBox.y,gunGameBox.w,gunGameBox.h,10)
@@ -21,12 +21,12 @@ function gameChoice(){
     // rect(huntGameBox.x,huntGameBox.y,huntGameBox.w,huntGameBox.h,10)
     // rect(tankGameBox.x,tankGameBox.y,tankGameBox.w,tankGameBox.h,10)
     function checkBox(box, charge, game, gamenum, gamename) {
-        fill(210)
+        fill(15, 84, 8);
         rect(box.x,box.y,box.w,box.h,10)
-        fill(100)
+        fill(0);
         text(gamename, box.x+120, box.y+100)
         if(charge > 0) {
-            fill(255)
+            fill(23, 176, 7)
             rect(box.x+5,box.y+5,charge,box.h-10, 10)
         }
         let blueOn = 0

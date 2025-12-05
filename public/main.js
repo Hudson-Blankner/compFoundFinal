@@ -14,10 +14,11 @@ let x = 100,
 let gameChoiceMusic;
 function preload() {
     gameChoiceMusic = loadSound('/music/GameChoiceSound.mp3');
+    MCfont = loadFont('/Monocraft.ttf')
   }
-
 function setup() {
   createCanvas(canvW, canvH);
+  textFont(MCfont);
   socket = io();
   socket.on("connect", () => {
     myId = socket.id;

@@ -5,7 +5,7 @@ function titleStage(){
     let canUp = true;
     let canDown = true;
     let playersOnStart = 0
-    background(220)
+    background(75, 148, 46);
     for (let id in players) {
         if (id != myId) {
             if (players[myId].x >= players[id].x-40 && players[myId].x <= players[id].x-15 && 
@@ -59,9 +59,9 @@ function titleStage(){
             25, "By Hudson, Lucky, and Port-Dawg"
         ))
     }
-    fill(210)
+    fill(15, 84, 8);
     rect(startBox.x, startBox.y+150, startBox.w, startBox.h, 10)
-    fill(255)
+    fill(23, 176, 7);
     if (startButtonCount > 0) {
         rect(startBox.x+10, startBox.y+160, startButtonCount, startBox.h-20, 10)
         }
