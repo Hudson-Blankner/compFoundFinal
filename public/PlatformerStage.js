@@ -28,7 +28,7 @@ function platformer(){
         if (keyIsDown(32)){
             titleSetup = true;
             stage = 1;
-            r = false;
+            //r = false;
         }
     }
     } else {

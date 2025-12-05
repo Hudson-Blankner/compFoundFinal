@@ -112,7 +112,7 @@ function tagGame() {
         for (let id in players) {
             if (id !== tagItId) {
                 tagScores[id] += 1;
-                if (tagScores[id] >= 67) {
+                if (tagScores[id] >= 25) {
                     // winner determined by color label
                     tagWinner = (players[id].color || "PLAYER").toUpperCase() + " WINS!";
                     tagWinFrames = 180; // show for ~3 seconds

@@ -51,7 +51,7 @@ function titleStage(){
         if (keyIsDown(DOWN_ARROW) || keyIsDown(83)) y += 5, pDirection = 3; 
     }
     fill(0)
-    text("Player Count: "+ playerCount, canvMid[0]-650, canvMid[1]-330);
+    text("Player Count: "+ playerCount, canvMid[0]-600, canvMid[1]-330);
     if(titleTxt.length === 0){
         titleTxt.push(new titleText(canvMid[0], canvMid[1],"black", 0,
             100, "Our Little Game"))
@@ -59,6 +59,14 @@ function titleStage(){
             25, "By Hudson, Lucky, and Port-Dawg"
         ))
     }
+    push()
+    textSize(15*sin(frameCount)+30)
+    translate(canvMid[0]+480, canvMid[1]-10)
+    angleMode(DEGREES)
+    rotate(30)
+    fill('yellow')
+    text("Han shot first", 0, 0)
+    pop()
     fill(15, 84, 8);
     rect(startBox.x, startBox.y+150, startBox.w, startBox.h, 10)
     fill(23, 176, 7);
