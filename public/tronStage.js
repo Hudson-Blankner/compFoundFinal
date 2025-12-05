@@ -1,14 +1,17 @@
 function tronGame(){
   if (gameIsOn){
-  createCanvas(innerWidth, innerHeight);
   background('black');
   frameRate(90);
   x = 20
   y = 200
   trondirection = 'right'
-  let trongameOver = false
+  trongameOver = false
   }
-  gameIsOn = false;
+  if (trongameOver  == true) {
+    return
+  } else {
+    player();
+  }
   function player(){
     if (notBlack(x,y) === true) {
       fill(225)
@@ -42,9 +45,5 @@ function tronGame(){
      else if (a[2] !== 0) return true;
      return false;
    }
-  if (trongameOver == true) {
-    return
-   }
-  player()
 }
   
