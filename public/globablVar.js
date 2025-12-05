@@ -27,6 +27,9 @@ let canJumpR = true;
 let canDoubleJump = true;
 let sprinting = false;
 //                  ==== platShit ====
+//                  ==== snowShit ====
+let snowflakes = [];
+//                  ==== snowShit ====
 //                  ==== tronShit ====
 let trongameOver;
 let trondirection;
