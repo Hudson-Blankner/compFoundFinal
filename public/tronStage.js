@@ -12,7 +12,6 @@ function tronGame(){
     return
   } else {
     player();
-    console.log("play")
   }
 
   function player(){
