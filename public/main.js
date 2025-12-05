@@ -101,6 +101,11 @@ function draw() {
     gameIsOn = false;
     platformer();
   } else if (players[myId].stage === 3) {
+    if (gameIsOn){
+      fill(240);
+      noStroke();
+    }
+    gameIsOn = false;
     spaceShipGame();
   } else if (players[myId].stage === 4) {
     gunGame();
