@@ -143,7 +143,6 @@ function draw() {
     tankGame();
   }
   strokeWeight(1);
-  console.log(menuOn)
   //stageCnt = stage;
 
   // Sends your position to the server

@@ -47,23 +47,29 @@ function platformer(){
             //     canDown = true
             // }
         } else {
+            //down
             if (players[myId].y >= 680 || (y >= 130 && y <= 145 && x < 220 && x > 140) ||
             (players[myId].y >= 600 && players[myId].y <= 615 && players[myId].x >= 140 && players[myId].x <= 1400)){
                 jumping = false;
                 canDown = false;
-                if (y > 130 && y <= 145 && x < 220 && x > 140){
+                if ((y > 130 && y <= 145 && x < 220 && x > 140) ||
+            (players[myId].y > 600 && players[myId].y < 615 && players[myId].x >= 140 && players[myId].x <= 1400)){
                     y = 130
                 }
             }
-            if (players[myId].x >= 1380 || (players[myId].y >= 130 && players[myId].y <= 670 && players[myId].x >= 140 && players[myId].x <= 160) ||
+            //right
+            if (players[myId].x >= 1380 || 
+            (players[myId].y >= 130 && players[myId].y <= 670 && players[myId].x >= 140 && players[myId].x <= 160) ||
             (players[myId].y > 40 && players[myId].y <= 440 && players[myId].x >= 340 && players[myId].x <= 360)){
                 canRight = false;
             }
+            //left
             if (players[myId].x <= 20 ||
                 (players[myId].y >= 130 && players[myId].y <= 670 && players[myId].x >= 200 && players[myId].x <= 220)
             ){
                 canLeft = false;
             }
+            //down
             if (players[myId].y <= 20 ||
                 (players[myId].y >= 670 && players[myId].y <= 680 && players[myId].x >= 140 && players[myId].x <= 1400)
             ){
