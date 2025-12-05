@@ -102,7 +102,7 @@ if (keyIsDown(DOWN_ARROW) || keyIsDown(83)) {
     wanderer[1] += 1;
   }
 }
-if ((wanderer[0] === mazeX - 1 && wanderer[1] === mazeY - 1) || keyIsDown(16)){
+if ((wanderer[0] === mazeX - 1 && wanderer[1] === mazeY - 1)){
   r = true;
   gameOver = true;
   score += 1;

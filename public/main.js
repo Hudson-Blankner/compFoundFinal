@@ -93,6 +93,11 @@ function draw() {
     titleSetup = false;
     gameChoice();
   } else if (players[myId].stage === 2) {
+    if (gameIsOn){
+      x = 1350;
+      y = 680;
+    }
+    gameIsOn = false;
     platformer();
   } else if (players[myId].stage === 3) {
     spaceShipGame();
