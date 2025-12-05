@@ -17,7 +17,7 @@ function preload() {
     MCfont = loadFont('/Monocraft.ttf')
   }
 function setup() {
-  createCanvas(canvW, canvH);
+  createCanvas(canvW, canvH, {willReadFrequently: true});
   textFont(MCfont);
   socket = io();
   socket.on("connect", () => {
