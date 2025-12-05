@@ -7,7 +7,9 @@ let x = 100,
   stage = 0,
   wingame = false,
   pDirection = 0,
-  musicOn = true;
+  musicOn = true,
+  menuOn = false,
+  volume = true;
 let gameChoiceMusic;
 function preload() {
     gameChoiceMusic = loadSound('/music/GameChoiceSound.mp3');
@@ -54,9 +56,6 @@ function draw() {
     titleStage();
   } else if (players[myId].stage === 1) {
     if (titleSetup) {
-      slider = createSlider(0, 100, 50);
-      slider.position(367, 250);
-      slider.size(200);
       if (players[myId].color === "blue") {
         x = playerOneStartX;
         y = playerOneStartY + 250;
@@ -74,8 +73,7 @@ function draw() {
     }
     titleSetup = false;
     gameChoice();
-    let volume = slider.value();
-    gameChoiceMusic.setVolume(volume/400);
+    gameChoiceMusic.setVolume(0.4);
   } else if (players[myId].stage === 2) {
     platformer();
   } else if (players[myId].stage === 3) {
@@ -121,7 +119,43 @@ function draw() {
   } else if (players[myId].stage === 11) {
     tankGame();
   }
-
+  if (menuOn) {
+    strokeWeight(0);
+    fill(0);
+    rect(495, 195, 410, 310);
+    fill(150);
+    rect(500, 200, 400, 300);
+    if (mouseX >= 535 && mouseX <= 580 && mouseY >= 230 && mouseY <= 270){
+      fill(50)
+      rect(532, 227, 51, 46)
+      fill(150)
+      rect(534, 229, 47, 42)
+    }
+    if (volume){
+      fill(50);
+      circle(550, 250, 30);
+      triangle(550,250,580,230,580,270);
+    } else{
+      fill(50);
+      circle(550, 250, 30);
+      line(560,235, 580,265);
+    }
+    function mouseClicked(){
+      if (mouseX >= 535 && mouseX <= 580 && mouseY >= 230 && mouseY <= 270){
+        if (volume){
+          volume = false;
+        } else{
+          volume = true;
+        }
+      }
+    }
+    // slider = createSlider(0, 100, 100*volume);
+    // slider.position(510, 210);
+    // slider.size(200);
+    // volume = slider.value();
+  }
+  strokeWeight(1);
+  console.log(menuOn)
   //stageCnt = stage;
 
   // Sends your position to the server
@@ -214,5 +248,14 @@ function draw() {
     }
   }
 }
+function keyTyped() {
+    if (keyCode === 80){
+      if (menuOn){
+        menuOn = false
+      } else{
+        menuOn = true
+      }
+    }
+  }
 //ngrok http 3000
 //node server.js
