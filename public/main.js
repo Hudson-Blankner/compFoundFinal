@@ -5,6 +5,7 @@ let x = 100,
   y = 100,
   r = false,
   stage = 0,
+  score = 0,
   wingame = false,
   pDirection = 0,
   musicOn = true,
@@ -37,6 +38,7 @@ function setup() {
       players[data.id].y = data.y;
       players[data.id].r = data.r;
       players[data.id].stage = data.stage;
+      players[data.id].score = data.score;
       players[data.id].wingame = data.wingame;
     }
   });
@@ -139,7 +141,7 @@ function draw() {
   //stageCnt = stage;
 
   // Sends your position to the server
-  socket.emit("playerMove", { x, y, r, stage });
+  socket.emit("playerMove", { x, y, r, stage, score });
 
   // goes through drawing all the different colors
   let bluePlayerOn = 0;
@@ -243,10 +245,14 @@ function draw() {
       fill(50);
       circle(550, 250, 30);
       triangle(550,250,580,230,580,270);
+      strokeWeight(1);
     } else{
       fill(50);
       circle(550, 250, 30);
-      line(560,235, 580,265);
+      strokeWeight(2);
+      line(565,245, 575,255);
+      line(575,245, 565,255);
+      strokeWeight(1);
     }
     // slider = createSlider(0, 100, 100*volume);
     // slider.position(510, 210);
